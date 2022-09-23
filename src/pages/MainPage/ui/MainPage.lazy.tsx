@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 
-export const MainPageLazy = lazy(()=> new Promise(resolve => {
+export const MainPageLazy = lazy(() => new Promise((resolve) => {
     // @ts-ignore
     // Затримка тільки для курсу, не робіть так на реальних проектах!!!
-    setTimeout(()=> resolve(import('./MainPage')), 1500)
-}))
+    setTimeout(() => resolve(import('./MainPage')), 1500);
+}));
