@@ -13,6 +13,7 @@
   justify-content: center;
   width: 100%;
 }
+
 .items {
   margin-top: 20px;
   display: flex;
@@ -36,7 +37,7 @@
 }
 
 .collapseBtn {
-position: absolute;
+  position: absolute;
   right: -32px;
   bottom: 32px
 }
@@ -47,10 +48,12 @@ position: absolute;
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+
   .switchers {
     flex-direction: column;
     align-items: center;
   }
+
   .lang {
     margin-left: 0;
   }
