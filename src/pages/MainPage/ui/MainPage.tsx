@@ -4,12 +4,7 @@ import { Counter } from 'entities/Counter';
 
 function MainPage() {
   const { t } = useTranslation('mainpage');
-  return (
-    <div>
-      {t('Головна')}
-      <Counter />
-    </div>
-  );
+  return <div>{t('Головна')}</div>;
 }
 
 export default MainPage;
