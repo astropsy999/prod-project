@@ -6,11 +6,11 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { Navbar } from './Navbar';
 
 export default {
-    title: 'widget/Navbar',
-    component: Navbar,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
+  title: 'widget/Navbar',
+  component: Navbar,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof Navbar>;
 
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;

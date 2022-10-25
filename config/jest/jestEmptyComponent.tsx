@@ -1,7 +1,7 @@
 import React from 'react';
 
 function jestEmptyComponent() {
-    return <div />;
+  return <div />;
 }
 
 export default jestEmptyComponent;
