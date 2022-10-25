@@ -1,15 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { BugButton } from 'app/providers/ErrorBoundary';
+import { Counter } from 'entities/Counter';
 
 function MainPage() {
-    const { t } = useTranslation('mainpage');
-    return (
-        <div>
-            <BugButton />
-            {t('Головна')}
-        </div>
-    );
+  const { t } = useTranslation('mainpage');
+  return (
+    <div>
+      {t('Головна')}
+      <Counter />
+    </div>
+  );
 }
 
 export default MainPage;
