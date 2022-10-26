@@ -67,7 +67,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'warn',
   },
   globals: {
     __IS_DEV__: true,
