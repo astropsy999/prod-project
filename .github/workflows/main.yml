@@ -6,10 +6,10 @@ on:
     branches: [ master ]
 jobs:
   pipeline:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     strategy:
       matrix:
-        node-version: [ 16.x ]
+        node-version: [ 17.x ]
     steps:
       - uses: actions/checkout@v2
       - name: Starting Node.js ${{ matrix.node-version }}
