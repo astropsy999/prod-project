@@ -8,5 +8,7 @@
   "Помилка": "Error",
   "Згорнути": "Toggle",
   "Мов": "En",
-  "Увійти": "Login"
+  "Увійти": "Login",
+  "Введіть Ім‘я":"Enter Username",
+  "Введіть Пароль": "Enter Password"
 }
