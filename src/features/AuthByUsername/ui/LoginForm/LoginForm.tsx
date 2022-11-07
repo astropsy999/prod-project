@@ -8,6 +8,7 @@ import cls from './LoginForm.module.scss';
 import { loginActions } from '../../model/slice/loginSlice';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 interface LoginFormProps {
   className?: string;
@@ -17,7 +18,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
   const { t } = useTranslation();
   const { className } = props;
   const dispatch = useDispatch();
-  const { username, password } = useSelector(getLoginState);
+  const { username, password, error, isLoading } = useSelector(getLoginState);
   const onChangeUsername = useCallback(
     (value: string) => {
       dispatch(loginActions.setUsername(value));
@@ -36,6 +37,8 @@ export const LoginForm = memo((props: LoginFormProps) => {
 
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
+      <Text title={t('Авторизуватись')} theme={TextTheme.PRIMARY} />
+      {error && <Text text={error} theme={TextTheme.ERROR} />}
       <Input
         type='text'
         className={cls.input}
@@ -55,6 +58,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
         theme={ButtonTheme.OUTLINE}
         className={cls.loginBtn}
         onClick={onLoginClick}
+        disabled={isLoading}
       >
         {t('Увійти')}
       </Button>
