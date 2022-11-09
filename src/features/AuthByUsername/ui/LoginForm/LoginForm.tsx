@@ -1,14 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
-import { memo, useCallback } from 'react';
-import cls from './LoginForm.module.scss';
-import { loginActions } from '../../model/slice/loginSlice';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { loginActions } from '../../model/slice/loginSlice';
+import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
   className?: string;
@@ -38,7 +38,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <Text title={t('Авторизуватись')} theme={TextTheme.PRIMARY} />
-      {error && <Text text={error} theme={TextTheme.ERROR} />}
+      {error && <Text text={t('Помилка')} theme={TextTheme.ERROR} />}
       <Input
         type='text'
         className={cls.input}

@@ -12,5 +12,7 @@
   "Введіть Ім‘я":"Enter Username",
   "Введіть Пароль": "Enter Password",
   "Авторизуватись": "Authorization",
-  "Помилка": "Data Error"
+  "Помилка": "Data Error",
+  "Вийти": "Logout"
+
 }
