@@ -1,3 +1,3 @@
-import { MainPageLazy as MainPage } from './ui/MainPage.lazy';
+import { MainPageAsync as MainPage } from './ui/MainPage.async';
 
 export { MainPage };
