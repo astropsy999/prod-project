@@ -13,6 +13,8 @@
   "Введіть Пароль": "Enter Password",
   "Авторизуватись": "Authorization",
   "Помилка": "Data Error",
-  "Вийти": "Logout"
+  "Вийти": "Logout",
+  "Профіль": "Profile",
+  "Сторінка Профілю": "Profile page"
 
 }

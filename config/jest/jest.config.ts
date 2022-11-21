@@ -8,6 +8,7 @@ const path = require('path');
 export default {
   globals: {
     __IS_DEV__: true,
+    __API__: '',
   },
 
   // All imported modules in your tests should be mocked automatically
