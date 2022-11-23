@@ -1,15 +1,12 @@
-import {
-  configureStore,
-  DeepPartial,
-  ReducersMapObject,
-} from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { CombinedState, Reducer } from 'redux';
 import { To } from '@remix-run/router';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { NavigateOptions } from 'react-router/dist/lib/context';
 import { $api } from 'shared/api/api';
 import { createReducerManager } from './reducerManager';
-import { StateSchema, ReduxStoreWithManager } from './StateSchema';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -24,17 +21,19 @@ export function createReduxStore(
 
   const reducerManager = createReducerManager(rootReducers);
 
+  const extraArg: ThunkExtraArg = {
+    api: $api,
+    navigate,
+  };
+
   const store = configureStore({
-    reducer: reducerManager.reduce,
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {
-          extraArgument: {
-            api: $api,
-            navigate,
-          },
+          extraArgument: extraArg,
         },
       }),
   });
