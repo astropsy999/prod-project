@@ -1,9 +1,14 @@
 import {
   fetchProfileData,
+  getProfileData,
+  getProfileError,
+  getProfileIsLoading,
   ProfileCard,
   profileReducer,
 } from 'entities/Profile';
+
 import { memo, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
@@ -24,6 +29,10 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
+  const data = useSelector(getProfileData);
+  const error = useSelector(getProfileError);
+  const isLoading = useSelector(getProfileIsLoading);
+
   useEffect(() => {
     dispatch(fetchProfileData());
   }, [dispatch]);
@@ -31,7 +40,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames('', {}, [className])}>
-        <ProfileCard />
+        <ProfileCard data={data} isLoading={isLoading} error={error} />
       </div>
     </DynamicModuleLoader>
   );
