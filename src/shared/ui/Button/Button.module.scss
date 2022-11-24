@@ -20,6 +20,13 @@
   color: var(--primary-color);
   background: none;
 }
+.outline_red {
+  border: 1px solid var(--red-title-color);
+  color: var(--red-text-color);
+  background: none;
+}
+
+
 
 .outline_inverted {
   border: 1px solid var(--inverted-primary-color);

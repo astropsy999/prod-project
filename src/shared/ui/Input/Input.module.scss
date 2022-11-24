@@ -29,6 +29,10 @@
   animation: blink 0.7s forwards infinite;
 }
 
+.readonly {
+  opacity: 0.7;
+}
+
 .caretWrapper {
   flex-grow: 1;
   position: relative;
