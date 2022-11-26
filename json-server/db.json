@@ -36,11 +36,11 @@
     }
   ],
   "profile": {
-    "first": "Евгений111",
-    "lastname": "Стужук111",
+    "first": "Евгений",
+    "lastname": "Стужук",
     "age": 42,
-    "currency": "UAH",
-    "country": "Ukraine",
+    "currency": "EUR",
+    "country": "Cyprus",
     "city": "Lviv",
     "username": "admin",
     "avatar": "https://lh3.googleusercontent.com/a/ALm5wu3gSHwI-4OwZYxHkuSoQCfIntP9Yz0785WYpqp8Ug=s576-p-rw-no"
