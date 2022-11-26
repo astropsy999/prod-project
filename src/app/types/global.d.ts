@@ -10,6 +10,7 @@ declare module '*.png';
 declare module '*.jpeg';
 declare module '*.jpg';
 declare module '*.woff2';
+declare module '*.webp';
 declare module '*.svg' {
   import React, { VFC } from 'react';
 
