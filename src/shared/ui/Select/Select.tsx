@@ -24,7 +24,7 @@ export const Select = memo(
           {opt.content}
         </option>
       ));
-    }, []);
+    }, [options]);
 
     const mods: Mods = {};
 
@@ -34,7 +34,7 @@ export const Select = memo(
 
     return (
       <div className={classNames(cls.Wrapper, mods, [className])}>
-        {label && <span className={cls.label}>{label + '>'}</span>}
+        {label && <span className={cls.label}>{`${label}>`}</span>}
         <select
           className={cls.select}
           value={value}

@@ -21,7 +21,7 @@ describe('updateProfileData.test', () => {
         form: data,
       },
     });
-    thunk.api.put.mockReturnValue(Promise.resolve({ data: data }));
+    thunk.api.put.mockReturnValue(Promise.resolve({ data }));
     const result = await thunk.callThunk();
 
     expect(thunk.api.put).toHaveBeenCalled();

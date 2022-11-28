@@ -2,8 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import React from 'react';
-import { ProfileCard } from './ProfileCard';
 import avatar from 'shared/assets/tests/avatar.webp';
+import { ProfileCard } from './ProfileCard';
 
 export default {
   title: 'entities/ProfileCard',
@@ -27,7 +27,7 @@ Primary.args = {
     currency: Currency.UAH,
     first: 'Имя',
     city: 'Город',
-    avatar: avatar,
+    avatar,
   },
 };
 

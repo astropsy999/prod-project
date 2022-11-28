@@ -1,7 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import avatar from 'shared/assets/tests/avatar.webp';
 import { getProfileData } from './getProfileData';
 
 describe('getLoginError.test.', () => {
@@ -17,7 +16,7 @@ describe('getLoginError.test.', () => {
     };
     const state: DeepPartial<StateSchema> = {
       profile: {
-        data: data,
+        data,
       },
     };
     expect(getProfileData(state as StateSchema)).toEqual(data);

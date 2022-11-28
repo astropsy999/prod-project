@@ -1,12 +1,12 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Theme } from 'app/providers/ThemeProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 import avatar from 'shared/assets/tests/avatar.webp';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/TemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
 import ProfilePage from './ProfilePage';
 
 export default {
@@ -34,7 +34,7 @@ Light.decorators = [
         currency: Currency.UAH,
         first: 'Имя',
         city: 'Город',
-        avatar: avatar,
+        avatar,
       },
     },
   }),
@@ -55,7 +55,7 @@ Dark.decorators = [
         currency: Currency.UAH,
         first: 'Имя',
         city: 'Город',
-        avatar: avatar,
+        avatar,
       },
     },
   }),
