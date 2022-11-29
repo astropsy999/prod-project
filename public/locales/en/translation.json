@@ -1,20 +1,21 @@
 {
-  "Мова": "Eng",
-  "Головна": "Main",
-  "Про нас": "About",
+  "Язык": "Eng",
+  "Главная": "Main",
+  "О нас": "About",
   "Сторінку не знайдено": "Page not found",
   "Виникла непередбачена помилка": "An unexpected error has occurred",
   "Оновити сторінку": "Refresh",
-  "Помилка": "Error",
   "Згорнути": "Toggle",
-  "Мов": "En",
-  "Увійти": "Login",
-  "Введіть Ім‘я":"Enter Username",
-  "Введіть Пароль": "Enter Password",
-  "Авторизуватись": "Authorization",
+  "Яз": "En",
+  "Войти": "Login",
+  "Введите Имя":"Enter Username",
+  "Введите Пароль": "Enter Password",
+  "Авторизоваться": "Authorization",
   "Помилка": "Data Error",
-  "Вийти": "Logout",
-  "Профіль": "Profile",
-  "Сторінка Профілю": "Profile page"
+  "Выйти": "Logout",
+  "Профиль": "Profile",
+  "Сторінка Профілю": "Profile page",
+  "Статьи": "Articles"
+
 
 }
