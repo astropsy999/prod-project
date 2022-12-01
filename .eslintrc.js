@@ -10,6 +10,7 @@ module.exports = {
     'plugin:i18next/recommended',
     'plugin:storybook/recommended',
     'plugin:prettier/recommended',
+    'eslint:recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
