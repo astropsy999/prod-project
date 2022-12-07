@@ -120,7 +120,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://lh3.googleusercontent.com/a/ALm5wu3gSHwI-4OwZYxHkuSoQCfIntP9Yz0785WYpqp8Ug=s576-p-rw-no"
+      "avatar": "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
 
     },
     {
@@ -128,7 +128,8 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://lh3.googleusercontent.com/a/ALm5wu3gSHwI-4OwZYxHkuSoQCfIntP9Yz0785WYpqp8Ug=s576-p-rw-no"
+      "avatar": "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+
 
     }
   ],
@@ -140,6 +141,7 @@
     "country": "Cyprus",
     "city": "Домодедово",
     "username": "admin",
-    "avatar": "https://lh3.googleusercontent.com/a/ALm5wu3gSHwI-4OwZYxHkuSoQCfIntP9Yz0785WYpqp8Ug=s576-p-rw-no"
+    "avatar": "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+
   }
 }
