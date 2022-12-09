@@ -121,7 +121,6 @@
       "password": "123",
       "role": "ADMIN",
       "avatar": "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
-
     },
     {
       "id": "2",
@@ -129,19 +128,29 @@
       "password": "123",
       "role": "USER",
       "avatar": "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
-
-
     }
   ],
-  "profile": {
+  "profile": [{
+    "id": "1",
     "first": "Евгений",
     "lastname": "Стужук",
     "age": 42,
     "currency": "EUR",
-    "country": "Cyprus",
-    "city": "Домодедово",
+    "country": "Ukraine",
+    "city": "Irshansk",
     "username": "admin",
     "avatar": "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
-
-  }
+  },
+    {
+      "id": "2",
+      "first": "Yevhenii",
+      "lastname": "Stuzhuk",
+      "age": 42,
+      "currency": "EUR",
+      "country": "Cyprus",
+      "city": "Steni",
+      "username": "user",
+      "avatar": "https://resizing.flixster.com/UxNyiJpvtsgEQQ0uL8sulwnecgY=/300x300/v2/https://resizing.flixster.com/bmOWHsSaRU5NsA468owFvl3e9hs=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzM4NzIyMzEzLWE4NGEtNGIwMS1hNTBhLWRkOGE3MWI1OWE2OS53ZWJw"
+    }
+  ]
 }
