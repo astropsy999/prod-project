@@ -112,6 +112,42 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "12222222",
+      "id": "SYeeHLk"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "12222222",
+      "id": "pTakE0v"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "99999999999",
+      "id": "70PjGS-"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Привет от модуля комментов",
+      "id": "-HmAAbn"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "ывавыаваыва",
+      "id": "MWhGiqp"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdfsdfsdfdsfsd",
+      "id": "7ErMKnS"
     }
   ],
   "users": [
@@ -127,20 +163,21 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+      "avatar": "https://resizing.flixster.com/UxNyiJpvtsgEQQ0uL8sulwnecgY=/300x300/v2/https://resizing.flixster.com/bmOWHsSaRU5NsA468owFvl3e9hs=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzM4NzIyMzEzLWE4NGEtNGIwMS1hNTBhLWRkOGE3MWI1OWE2OS53ZWJw"
     }
   ],
-  "profile": [{
-    "id": "1",
-    "first": "Евгений",
-    "lastname": "Стужук",
-    "age": 42,
-    "currency": "EUR",
-    "country": "Ukraine",
-    "city": "Irshansk",
-    "username": "admin",
-    "avatar": "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "first": "Евгений",
+      "lastname": "Стужук",
+      "age": 4222,
+      "currency": "USD",
+      "country": "Ukraine",
+      "city": "Irshansk",
+      "username": "admin",
+      "avatar": "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+    },
     {
       "id": "2",
       "first": "Yevhenii",

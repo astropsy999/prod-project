@@ -1,6 +1,7 @@
-import { lazy } from 'react';
+import { AddCommentFormProps } from './AddCommentForm';
+import { FC, lazy } from 'react';
 
-export const AddCommentFormAsync = lazy(
+export const AddCommentFormAsync = lazy<FC<AddCommentFormProps>>(
   () =>
     new Promise((resolve) => {
       // @ts-ignore
