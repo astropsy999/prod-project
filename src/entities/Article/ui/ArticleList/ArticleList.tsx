@@ -19,7 +19,9 @@ export const ArticleList = memo(
     isLoading,
   }: ArticleListProps) => {
     const renderArticle = (article: Article) => {
-      return <ArticleListItem article={article} view={view} />;
+      return (
+        <ArticleListItem className={cls.card} article={article} view={view} />
+      );
     };
 
     return (

@@ -15,7 +15,7 @@ interface ArticleListItemProps {
 
 export const ArticleListItem = memo(
   ({ className, article, view }: ArticleListItemProps) => {
-    if (ArticleView.CARDS) {
+    if (view === ArticleView.LIST) {
       return (
         <div
           className={classNames(cls.ArticleListItem, {}, [
@@ -23,18 +23,7 @@ export const ArticleListItem = memo(
             cls[view],
           ])}
         >
-          <Card className={cls.card}>
-            <div className={cls.imageWrapper}>
-              <img alt={article.title} src={article.img} className={cls.img} />
-              <Text text={article.createdAt} className={cls.date} />
-            </div>
-            <div className={cls.infoWrapper}>
-              <Text text={article.type.join(',')} className={cls.types} />
-              <Text text={String(article.views)} className={cls.views} />
-              <Icon Svg={EyeIcon} />
-            </div>
-            <Text title={article.title} className={cls.title} />
-          </Card>
+          {article.title}
         </div>
       );
     }
@@ -42,7 +31,20 @@ export const ArticleListItem = memo(
     return (
       <div
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-      ></div>
+      >
+        <Card className={cls.card}>
+          <div className={cls.imageWrapper}>
+            <img alt={article.title} src={article.img} className={cls.img} />
+            <Text text={article.createdAt} className={cls.date} />
+          </div>
+          <div className={cls.infoWrapper}>
+            <Text text={article.type.join(',')} className={cls.types} />
+            <Text text={String(article.views)} className={cls.views} />
+            <Icon Svg={EyeIcon} />
+          </div>
+          <Text title={article.title} className={cls.title} />
+        </Card>
+      </div>
     );
   },
 );
