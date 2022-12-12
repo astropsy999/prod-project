@@ -37,6 +37,11 @@ export enum ArticleType {
   ECONOMICS = 'ECONOMICS',
 }
 
+export enum ArticleView {
+  LIST = 'LIST',
+  CARDS = 'CARDS',
+}
+
 export interface Article {
   id: string;
   title: string;
