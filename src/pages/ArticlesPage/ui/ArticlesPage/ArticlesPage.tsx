@@ -1,4 +1,5 @@
 import { Article, ArticleList } from 'entities/Article';
+import { ArticleView } from 'entities/Article/model/types/article';
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticlesPage.module.scss';
@@ -15,6 +16,11 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
+    user: {
+      id: '1',
+      username: 'User',
+      avatar: 'https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png',
+    },
     type: ['IT', 'SCIENCE', 'POLITIC', 'ECONOMIC'],
     blocks: [
       {
@@ -81,6 +87,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   return (
     <div className={classNames(cls.ArticlesPage, {}, [className])}>
       <ArticleList
+        view={ArticleView.LIST}
         articles={new Array(16)
           .fill(0)
           .map((item, index) => ({ ...article, id: String(index) }))}
