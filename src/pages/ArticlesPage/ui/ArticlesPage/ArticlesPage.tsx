@@ -87,6 +87,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   return (
     <div className={classNames(cls.ArticlesPage, {}, [className])}>
       <ArticleList
+        isLoading={true}
         view={ArticleView.LIST}
         articles={new Array(16)
           .fill(0)

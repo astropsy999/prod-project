@@ -1,6 +1,8 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -25,6 +27,13 @@ interface ArticleListItemProps {
 export const ArticleListItem = memo(
   ({ className, article, view }: ArticleListItemProps) => {
     const { t } = useTranslation();
+
+    const navigate = useNavigate();
+
+    const onOpenArticle = useCallback(() => {
+      navigate(RoutePath.article_details + article.id);
+    }, [article.id, navigate]);
+
     const types = <Text text={article.type.join(',')} className={cls.types} />;
     const views = (
       <>
@@ -59,7 +68,7 @@ export const ArticleListItem = memo(
               />
             )}
             <div className={cls.footer}>
-              <Button theme={ButtonTheme.OUTLINE}>
+              <Button onClick={onOpenArticle} theme={ButtonTheme.OUTLINE}>
                 {t('Читать далее...')}
               </Button>
               {views}
@@ -73,7 +82,7 @@ export const ArticleListItem = memo(
       <div
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
       >
-        <Card className={cls.card}>
+        <Card className={cls.card} onClick={onOpenArticle}>
           <div className={cls.imageWrapper}>
             <img alt={article.title} src={article.img} className={cls.img} />
             <Text text={article.createdAt} className={cls.date} />
