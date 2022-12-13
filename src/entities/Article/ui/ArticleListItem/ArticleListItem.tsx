@@ -91,7 +91,7 @@ export const ArticleListItem = memo(
             {types}
             {views}
           </div>
-          {types}
+          <Text title={article.title} className={cls.title} />
         </Card>
       </div>
     );
