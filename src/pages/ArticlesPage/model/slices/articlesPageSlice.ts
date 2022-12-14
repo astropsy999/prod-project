@@ -2,12 +2,13 @@ import {createEntityAdapter, createSlice, PayloadAction,} from '@reduxjs/toolkit
 import {StateSchema} from 'app/providers/StoreProvider';
 import {Article} from 'entities/Article';
 import {ArticleView} from 'entities/Article/model/types/article';
+import {ARTICLES_VIEW_LOCALSTORAGE_KEY} from 'shared/const/localstorage';
 import {fetchArticlesList} from '../services/fetchArticlesList/fetchArticlesList';
 import {ArticlesPageSchema} from '../types/ArticlesPageSchema';
 
 // Since we don't provide `selectId`, it defaults to assuming `entity.id` is the right field
 const articlesAdapter = createEntityAdapter<Article>({
-  // Keep the "all IDs" array sorted based on book titles
+  // Keep the "all IDsx`x`` array sorted based on book titles
   selectId: (article) => article.id,
 });
 
@@ -27,6 +28,12 @@ const articlesPageSlice = createSlice({
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload;
+      localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
+    },
+    initState: (state) => {
+      state.view = localStorage.getItem(
+        ARTICLES_VIEW_LOCALSTORAGE_KEY,
+      ) as ArticleView;
     },
   },
   extraReducers: (builder) => {
