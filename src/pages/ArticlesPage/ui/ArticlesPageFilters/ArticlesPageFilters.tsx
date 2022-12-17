@@ -4,11 +4,13 @@ import {
   ArticleView,
 } from 'entities/Article';
 import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from 'shared/types';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
@@ -33,6 +35,12 @@ export const ArticlesPageFilters = memo(
     const order = useSelector(getArticlesPageOrder);
     const search = useSelector(getArticlesPageSearch);
 
+    const fetchData = useCallback(() => {
+      dispatch(fetchArticlesList({ replace: true }));
+    }, [dispatch]);
+
+    const debouncedFetchData = useDebounce(fetchData, 500);
+
     const onChangeView = useCallback(
       (view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
@@ -42,22 +50,28 @@ export const ArticlesPageFilters = memo(
     const onChangeSort = useCallback(
       (newSort: ArticleSortField) => {
         dispatch(articlesPageActions.setSort(newSort));
+        dispatch(articlesPageActions.setPage(1));
+        fetchData();
       },
-      [dispatch],
+      [dispatch, fetchData],
     );
 
     const onChangeOrder = useCallback(
       (newOrder: SortOrder) => {
         dispatch(articlesPageActions.setOrder(newOrder));
+        dispatch(articlesPageActions.setPage(1));
+        fetchData();
       },
-      [dispatch],
+      [dispatch, fetchData],
     );
 
     const onChangeSearch = useCallback(
       (search: string) => {
         dispatch(articlesPageActions.setSearch(search));
+        dispatch(articlesPageActions.setPage(1));
+        debouncedFetchData();
       },
-      [dispatch],
+      [dispatch, debouncedFetchData],
     );
     const { t } = useTranslation();
 
