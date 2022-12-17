@@ -3,7 +3,7 @@ import React from 'react';
 import ArticlesPage from './ArticlesPage';
 
 export default {
-  title: 'pages/ArticlesPage',
+  title: 'pages/Article/ArticlesPage',
   component: ArticlesPage,
   argTypes: {
     backgroundColor: { control: 'color' },

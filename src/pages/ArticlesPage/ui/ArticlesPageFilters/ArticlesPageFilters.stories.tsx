@@ -3,7 +3,7 @@ import React from 'react';
 import { ArticlesPageFilters } from './ArticlesPageFilters';
 
 export default {
-  title: 'shared/ArticlesPageFilters',
+  title: 'pages/Article/ArticlesPageFilters',
   component: ArticlesPageFilters,
   argTypes: {
     backgroundColor: { control: 'color' },

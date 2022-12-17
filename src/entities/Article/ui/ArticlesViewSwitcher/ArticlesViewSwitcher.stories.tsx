@@ -3,7 +3,7 @@ import React from 'react';
 import { ArticlesViewSwitcher } from './ArticlesViewSwitcher';
 
 export default {
-  title: 'shared/ArticlesViewSwitcher',
+  title: 'entities/Article/ArticlesViewSwitcher',
   component: ArticlesViewSwitcher,
   argTypes: {
     backgroundColor: { control: 'color' },

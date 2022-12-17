@@ -3,7 +3,7 @@ import React from 'react';
 import { ArticleSortSelector } from './ArticleSortSelector';
 
 export default {
-  title: 'shared/ArticleSortSelector',
+  title: 'entities/Article/ArticleSortSelector',
   component: ArticleSortSelector,
   argTypes: {
     backgroundColor: { control: 'color' },
