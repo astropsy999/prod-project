@@ -81,7 +81,7 @@ export const ArticlesPageFilters = memo(
     const onChangeType = useCallback(
       (value: ArticleType) => {
         dispatch(articlesPageActions.setType(value));
-        debouncedFetchData();
+        fetchData();
       },
       [dispatch, debouncedFetchData],
     );
