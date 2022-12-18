@@ -20,14 +20,9 @@ import { getArticleRecommendationsIsLoading } from '../../model/selectors/recomm
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import {
-  articleDetailsCommentsReducer,
-  getArticleComments,
-} from '../../model/slices/articleDetailsCommentSlice';
-import {
-  articleDetailsPageRecommendationsReducer,
-  getArticleRecommendations,
-} from '../../model/slices/articleDetailsPageRecommendationsSlice';
+import { articleDetailsPageReducer } from '../../model/slices';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentSlice';
+import { getArticleRecommendations } from '../../model/slices/articleDetailsPageRecommendationsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -35,8 +30,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
-  articleDetailsRecommendations: articleDetailsPageRecommendationsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
@@ -90,6 +84,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           articles={recommendations}
           isLoading={recommendationsIsLoading}
           className={cls.recommendations}
+          target='_blank'
         />
         <Text
           size={TextSize.L}
