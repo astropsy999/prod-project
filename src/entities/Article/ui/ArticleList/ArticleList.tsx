@@ -1,8 +1,10 @@
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { t } from 'i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
+import { PAGE_ID } from 'widgets/Page/Page';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
@@ -30,18 +32,40 @@ export const ArticleList = memo(
     isLoading,
     target,
   }: ArticleListProps) => {
-    const renderArticle = (article: Article) => {
+    const isList = view === ArticleView.LIST;
+
+    const itemsPerRow = isList ? 1 : 4;
+    const rowCount = isList
+      ? articles.length
+      : Math.ceil(articles.length / itemsPerRow);
+    const rowRenderer = ({
+      key, // Unique key within array of rows
+      index, // Index of row within collection
+      isScrolling, // The List is currently being scrolled
+      isVisible, // This row is visible within the List (eg it is not an overscanned row)
+      style, // Style object to be applied to row (to position it)
+    }: ListRowProps) => {
+      const items = [];
+      const fromIndex = index * itemsPerRow;
+      const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
+
+      for (let i = fromIndex; i < toIndex; i++) {
+        items.push(
+          <ArticleListItem
+            className={cls.card}
+            article={articles[i]}
+            view={view}
+            target={target}
+            key={'str' + i}
+          />,
+        );
+      }
       return (
-        <ArticleListItem
-          className={cls.card}
-          article={article}
-          view={view}
-          key={article.id}
-          target={target}
-        />
+        <div key={key} style={style} className={cls.row}>
+          {items}
+        </div>
       );
     };
-
     if (!isLoading && !articles.length) {
       return (
         <div
@@ -53,10 +77,37 @@ export const ArticleList = memo(
     }
 
     return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        {articles.length > 0 ? articles.map(renderArticle) : null}
-        {isLoading && getSkeletons(view)}
-      </div>
+      <WindowScroller
+        onScroll={() => console.log('scroll')}
+        scrollElement={document.getElementById(PAGE_ID) as Element}
+      >
+        {({
+          height,
+          width,
+          registerChild,
+          onChildScroll,
+          isScrolling,
+          scrollTop,
+        }) => (
+          <div
+            ref={registerChild}
+            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+          >
+            <List
+              width={width ? width - 80 : 700}
+              height={height ?? 700}
+              rowHeight={isList ? 700 : 330}
+              rowCount={rowCount}
+              rowRenderer={rowRenderer}
+              autoHeight
+              onScroll={onChildScroll}
+              isScrolling={isScrolling}
+              scrollTop={scrollTop}
+            />
+            {isLoading && getSkeletons(view)}
+          </div>
+        )}
+      </WindowScroller>
     );
   },
 );
