@@ -21,10 +21,8 @@ export const Tabs = memo(
     const { t } = useTranslation();
 
     const clickHandle = useCallback(
-      (tab: TabItem) => {
-        return () => {
-          onTabClick(tab);
-        };
+      (tab: TabItem) => () => {
+        onTabClick(tab);
       },
       [onTabClick],
     );

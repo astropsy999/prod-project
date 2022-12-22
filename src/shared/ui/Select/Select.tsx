@@ -24,13 +24,15 @@ export const Select = <T extends string>({
   onChange,
   readonly,
 }: SelectProps<T>) => {
-  const optionsList = useMemo(() => {
-    return options?.map((opt) => (
-      <option className={cls.option} value={opt.value} key={opt.value}>
-        {opt.content}
-      </option>
-    ));
-  }, [options]);
+  const optionsList = useMemo(
+    () =>
+      options?.map((opt) => (
+        <option className={cls.option} value={opt.value} key={opt.value}>
+          {opt.content}
+        </option>
+      )),
+    [options],
+  );
 
   const mods: Mods = {};
 

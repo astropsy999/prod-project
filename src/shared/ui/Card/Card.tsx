@@ -19,14 +19,12 @@ export const Card = memo(
     children,
     theme = CardTheme.NORMAL,
     ...otherProps
-  }: CardProps) => {
-    return (
-      <div
-        className={classNames(cls.Card, {}, [className, cls[theme]])}
-        {...otherProps}
-      >
-        {children}
-      </div>
-    );
-  },
+  }: CardProps) => (
+    <div
+      className={classNames(cls.Card, {}, [className, cls[theme]])}
+      {...otherProps}
+    >
+      {children}
+    </div>
+  ),
 );

@@ -37,7 +37,7 @@ export const ArticleListItem = memo(
       </>
     );
     if (view === ArticleView.LIST) {
-      let textBlock = article.blocks.find(
+      const textBlock = article.blocks.find(
         (block) => block.type === ArticleBlockType.TEXT,
       ) as ArticleTextBlock;
       return (

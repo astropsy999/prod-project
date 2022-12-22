@@ -58,13 +58,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         );
       case ArticleBlockType.TEXT:
         return (
-          <>
-            <ArticleTextBlockComponent
-              key={block.id}
-              className={cls.block}
-              block={block}
-            />
-          </>
+          <ArticleTextBlockComponent
+            key={block.id}
+            className={cls.block}
+            block={block}
+          />
         );
 
       default:
@@ -87,16 +85,16 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
           className={cls.avatar}
           width={200}
           height={200}
-          border={'50%'}
+          border='50%'
         />
         <Skeleton className={cls.title} width={300} height={32} />
         <Skeleton className={cls.skeleton} width={600} height={24} />
-        <Skeleton className={cls.skeleton} width={'100%'} height={200} />
-        <Skeleton className={cls.skeleton} width={'100%'} height={200} />
+        <Skeleton className={cls.skeleton} width='100%' height={200} />
+        <Skeleton className={cls.skeleton} width='100%' height={200} />
       </>
     );
   } else if (error) {
-    content = <div>Error</div>;
+    content = <div>{t('Error')}</div>;
   } else {
     content = (
       <>
@@ -127,7 +125,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   };
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.ArticleDetails, {}, [className])}>
         {content}
       </div>

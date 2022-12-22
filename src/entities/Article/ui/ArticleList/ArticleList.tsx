@@ -5,6 +5,7 @@ import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { PAGE_ID } from 'widgets/Page/Page';
+// eslint-disable-next-line paths-checking-plugin-ys/path-checker
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
@@ -17,13 +18,12 @@ interface ArticleListProps {
   target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view: ArticleView) => {
-  return new Array(view === ArticleView.CARDS ? 9 : 3)
+const getSkeletons = (view: ArticleView) =>
+  new Array(view === ArticleView.CARDS ? 9 : 3)
     .fill(0)
     .map((item, index) => (
       <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
     ));
-};
 export const ArticleList = memo(
   ({
     className,
@@ -56,7 +56,7 @@ export const ArticleList = memo(
             article={articles[i]}
             view={view}
             target={target}
-            key={'str' + i}
+            key={`str${i}`}
           />,
         );
       }

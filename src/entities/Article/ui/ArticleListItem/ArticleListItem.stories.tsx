@@ -93,11 +93,11 @@ const article = {
 export const CARDS = Template.bind({});
 CARDS.args = {
   view: ArticleView.CARDS,
-  article: article,
+  article,
 };
 
 export const LIST = Template.bind({});
 LIST.args = {
   view: ArticleView.LIST,
-  article: article,
+  article,
 };

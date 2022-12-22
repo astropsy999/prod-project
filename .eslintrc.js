@@ -4,14 +4,7 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'plugin:i18next/recommended',
-    'plugin:storybook/recommended',
-    'plugin:prettier/recommended',
-    'eslint:recommended',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -26,6 +19,7 @@ module.exports = {
     'i18next',
     'react-hooks',
     'prettier',
+    'paths-checking-plugin-ys',
   ],
   rules: {
     'react/jsx-indent': [2, 2],
@@ -53,14 +47,14 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        // ignoreAttribute: ['data-testid', 'to'],
+        ignoreAttribute: ['data-testid', 'to', 'target'],
       },
     ],
     'max-len': [
       'error',
       {
         ignoreComments: true,
-        code: 115,
+        code: 125,
       },
     ],
     'jsx-a11y/no-static-element-interactions': 'off',
@@ -69,12 +63,22 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
     'no-undef': 'off',
+    'no-confusing-arrow': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off',
+    'jsx-quotes': 'off',
+    'operator-linebreak': 'off',
+    'no-plusplus': 'off',
+    'object-curly-newline': 'off',
     'prettier/prettier': [
       'error',
       {
         endOfLine: 'auto',
       },
     ],
+    'paths-checking-plugin-ys/path-checker': 'error',
+    'react/no-array-index-key': 'off',
+    'react/jsx-curly-brace-presence': 'off',
   },
   globals: {
     __IS_DEV__: true,

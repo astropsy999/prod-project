@@ -83,7 +83,7 @@ export const ArticlesPageFilters = memo(
         dispatch(articlesPageActions.setType(value));
         fetchData();
       },
-      [dispatch, debouncedFetchData],
+      [dispatch, fetchData],
     );
     const { t } = useTranslation();
 

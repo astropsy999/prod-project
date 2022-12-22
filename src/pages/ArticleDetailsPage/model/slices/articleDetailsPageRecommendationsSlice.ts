@@ -1,10 +1,8 @@
-import {createEntityAdapter, createSlice} from '@reduxjs/toolkit';
-import {StateSchema} from 'app/providers/StoreProvider';
-import {Article} from 'entities/Article';
-import {
-    fetchArticleRecommendations
-} from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import {ArticleDetailsRecommendationsSchema} from '../types/ArticleDetailsRecommendationsSchema';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProvider';
+import { Article } from 'entities/Article';
+import { fetchArticleRecommendations } from '../services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { ArticleDetailsRecommendationsSchema } from '../types/ArticleDetailsRecommendationsSchema';
 
 // Since we don't provide `selectId`, it defaults to assuming `entity.id` is the right field
 const recommendationsAdapter = createEntityAdapter<Article>({

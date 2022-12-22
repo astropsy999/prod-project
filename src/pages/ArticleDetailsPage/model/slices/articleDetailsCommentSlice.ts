@@ -1,10 +1,12 @@
-import {createEntityAdapter, createSlice, PayloadAction,} from '@reduxjs/toolkit';
-import {StateSchema} from 'app/providers/StoreProvider';
-import {Comment} from 'entities/Comment';
 import {
-  fetchCommentsByArticleId
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import {ArticleDetailsCommentSchema} from '../types/ArticleDetailsCommentSchema';
+  createEntityAdapter,
+  createSlice,
+  PayloadAction,
+} from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProvider';
+import { Comment } from 'entities/Comment';
+import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { ArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchema';
 
 // Since we don't provide `selectId`, it defaults to assuming `entity.id` is the right field
 const commentsAdapter = createEntityAdapter<Comment>({

@@ -17,10 +17,10 @@ export const Skeleton = memo(
       borderRadius: border,
     };
     return (
-      <div
-        className={classNames(cls.Skeleton, {}, [className])}
-        style={styles}
-      ></div>
+      // eslint-disable-next-line i18next/no-literal-string
+      <div className={classNames(cls.Skeleton, {}, [className])} style={styles}>
+        Skeleton
+      </div>
     );
   },
 );
