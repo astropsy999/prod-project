@@ -83,8 +83,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   return (
     <VStack
-      gap={'8'}
       max
+      gap={'8'}
       className={classNames(cls.ProfileCard, mods, [className])}
     >
       {data?.avatar && (

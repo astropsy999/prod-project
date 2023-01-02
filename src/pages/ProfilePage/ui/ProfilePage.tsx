@@ -13,7 +13,7 @@ import {
   ValidateProfileError,
 } from 'entities/Profile';
 
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -37,7 +37,7 @@ const reducers: ReducersList = {
   profile: profileReducer,
 };
 
-const ProfilePage = memo(({ className }: ProfilePageProps) => {
+const ProfilePage = ({ className }: ProfilePageProps) => {
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
@@ -144,6 +144,6 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
       </Page>
     </DynamicModuleLoader>
   );
-});
+};
 
 export default ProfilePage;
