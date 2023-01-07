@@ -1,7 +1,12 @@
+// @ts-ignore
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+// @ts-ignore
 import CopyPlugin from 'copy-webpack-plugin';
+// @ts-ignore
 import HTMLWebpackPlugin from 'html-webpack-plugin';
+// @ts-ignore
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+// @ts-ignore
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';

@@ -634,10 +634,10 @@
   "profile": [
     {
       "id": "1",
-      "first": "Евгений",
+      "first": "Евгений999",
       "lastname": "Стужук",
-      "age": 4222,
-      "currency": "UAH",
+      "age": 42,
+      "currency": "USD",
       "country": "Ukraine",
       "city": "Irshansk",
       "username": "admin",
