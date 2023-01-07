@@ -2,7 +2,7 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import {
   getScrollSaveScrollByPath,
   scrollSaveActions,
-} from 'features/ScrollSave';
+} from 'features/scrollSave';
 import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -41,7 +41,6 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
   });
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    console.log('SCROLL');
     dispatch(
       scrollSaveActions.setScrollPosition({
         position: e.currentTarget.scrollTop,
