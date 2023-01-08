@@ -25,7 +25,7 @@ import { ValidateProfileError } from '../../model/types/editableProfileCardSchem
 
 interface EditableProfileCardProps {
   className?: string;
-  id?: string;
+  id: string;
 }
 
 const reducers: ReducersList = {
@@ -119,6 +119,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
               theme={TextTheme.ERROR}
               text={validateErrorsTranslate[err]}
               key={err}
+              data-testid={'EditableProfileCard.Error'}
             />
           ))}
         <ProfileCard

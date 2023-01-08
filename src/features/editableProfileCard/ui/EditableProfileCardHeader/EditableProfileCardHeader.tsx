@@ -17,51 +17,66 @@ interface EditableProfileCardHeaderProps {
 }
 
 export const EditableProfileCardHeader = memo(
-    ({className}: EditableProfileCardHeaderProps) => {
-        const {t} = useTranslation('profile');
+  ({ className }: EditableProfileCardHeaderProps) => {
+    const { t } = useTranslation('profile');
 
+    const readonly = useSelector(getProfileReadonly);
+    const dispatch = useAppDispatch();
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
 
-        const readonly = useSelector(getProfileReadonly);
-        const dispatch = useAppDispatch();
-        const authData = useSelector(getUserAuthData);
-        const profileData = useSelector(getProfileData);
+    const canEdit = authData?.id === profileData?.id;
 
-        const canEdit = authData?.id === profileData?.id;
+    const onEdit = useCallback(() => {
+      dispatch(profileActions.setReadonly(false));
+    }, [dispatch]);
 
-        const onEdit = useCallback(() => {
-            dispatch(profileActions.setReadonly(false));
-        }, [dispatch]);
+    const onCancelEdit = useCallback(() => {
+      dispatch(profileActions.cancelEdit());
+    }, [dispatch]);
 
-        const onCancelEdit = useCallback(() => {
-            dispatch(profileActions.cancelEdit());
-        }, [dispatch]);
+    const onSave = useCallback(() => {
+      dispatch(updateProfileData());
+    }, [dispatch]);
 
-        const onSave = useCallback(() => {
-            dispatch(updateProfileData());
-        }, [dispatch]);
-
-        return (
-            <HStack max justify={'between'} className={classNames('', {}, [className])}>
-                <Text title={t('Профиль пользователя')}/>
-                {canEdit && (
-                    <div>
-                        {readonly ? (
-                            <Button theme={ButtonTheme.OUTLINE} onClick={onEdit}>
-                                {t('Редактировать')}
-                            </Button>
-                        ) : (
-                            <HStack gap={'8'}>
-                                <Button theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEdit}>
-                                    {t('Отменить')}
-                                </Button>
-                                <Button theme={ButtonTheme.OUTLINE} onClick={onSave}>
-                                    {t('Сохранить')}
-                                </Button>
-                            </HStack>
-                        )}
-                    </div>
-                )}
-            </HStack>
-        );
-    },
+    return (
+      <HStack
+        max
+        justify={'between'}
+        className={classNames('', {}, [className])}
+      >
+        <Text title={t('Профиль пользователя')} />
+        {canEdit && (
+          <div>
+            {readonly ? (
+              <Button
+                theme={ButtonTheme.OUTLINE}
+                onClick={onEdit}
+                data-testid={'EditableProfileCardHeader.EditButton'}
+              >
+                {t('Редактировать')}
+              </Button>
+            ) : (
+              <HStack gap={'8'}>
+                <Button
+                  theme={ButtonTheme.OUTLINE_RED}
+                  onClick={onCancelEdit}
+                  data-testid={'EditableProfileCardHeader.CancelButton'}
+                >
+                  {t('Отменить')}
+                </Button>
+                <Button
+                  theme={ButtonTheme.OUTLINE}
+                  onClick={onSave}
+                  data-testid={'EditableProfileCardHeader.SaveButton'}
+                >
+                  {t('Сохранить')}
+                </Button>
+              </HStack>
+            )}
+          </div>
+        )}
+      </HStack>
+    );
+  },
 );
