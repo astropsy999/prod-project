@@ -1,6 +1,8 @@
 // @ts-ignore
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 // @ts-ignore
+import CircularDependencyPlugin from 'circular-dependency-plugin';
+// @ts-ignore
 import CopyPlugin from 'copy-webpack-plugin';
 // @ts-ignore
 import HTMLWebpackPlugin from 'html-webpack-plugin';
@@ -33,6 +35,11 @@ export function buildPlugins({
     }),
     new CopyPlugin({
       patterns: [{ from: paths.locales, to: paths.buildLocales }],
+    }),
+
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      failOnError: true,
     }),
   ];
 
