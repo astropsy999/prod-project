@@ -5,6 +5,8 @@ import CircularDependencyPlugin from 'circular-dependency-plugin';
 // @ts-ignore
 import CopyPlugin from 'copy-webpack-plugin';
 // @ts-ignore
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+// @ts-ignore
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 // @ts-ignore
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -40,6 +42,15 @@ export function buildPlugins({
     new CircularDependencyPlugin({
       exclude: /node_modules/,
       failOnError: true,
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+        mode: 'write-references',
+      },
     }),
   ];
 
