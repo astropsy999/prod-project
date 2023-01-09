@@ -8,6 +8,11 @@ i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
+  // .use(
+  //   resourcesToBackend(
+  //     (lng: string, ns: string) => import(`./locales/${lng}/${ns}.json`),
+  //   ),
+  // )
   .init({
     fallbackLng: 'ru',
     // debug: __IS_DEV__,

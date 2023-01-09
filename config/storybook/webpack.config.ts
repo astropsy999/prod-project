@@ -1,4 +1,6 @@
+// @ts-ignore
 import path from 'path';
+// @ts-ignore
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
@@ -29,7 +31,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config!.plugins!.push(
     new DefinePlugin({
       __IS_DEV__: true,
-      __API__: JSON.stringify(''),
+      __API__: JSON.stringify('https://testapi.io/'),
       __PROJECT__: JSON.stringify('storybook'),
     }),
   );

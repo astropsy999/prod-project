@@ -20,7 +20,12 @@ export function componentRender(
   return render(
     <MemoryRouter initialEntries={[route]}>
       <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>
-        <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
+        <I18nextProvider
+          // @ts-ignore
+          i18n={i18nForTests}
+        >
+          {component}
+        </I18nextProvider>
       </StoreProvider>
     </MemoryRouter>,
   );

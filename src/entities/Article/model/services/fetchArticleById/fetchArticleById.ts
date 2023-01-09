@@ -4,7 +4,7 @@ import { Article } from '../../types/article';
 
 export const fetchArticleById = createAsyncThunk<
   Article,
-  string,
+  string | undefined,
   ThunkConfig<string>
 >('article/fetchArticleById', async (articleId, thunkAPI) => {
   const { extra, rejectWithValue } = thunkAPI;
@@ -13,7 +13,7 @@ export const fetchArticleById = createAsyncThunk<
     const response = await extra.api.get<Article>(`/articles/${articleId}`, {
       params: { _expand: 'user' },
     });
-    if (!response.data) {
+    if (!response.data || !articleId) {
       throw new Error();
     }
 

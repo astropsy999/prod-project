@@ -23,29 +23,21 @@ const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
 };
 
-const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
-  const {t} = useTranslation('');
-  const {id} = useParams<{ id: string }>();
+const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
+  const { t } = useTranslation('');
+  const { id } = useParams<{ id: string }>();
 
-
-  if (!id) {
-    return (
-        <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-          {t('Статья не найдена')}
-        </Page>
-    );
-  }
   return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-        <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-          <VStack gap={'16'} max>
-            <ArticleDetailsPageHeader/>
-            <ArticleDetails id={id}/>
-            <ArticleRecommendationsList/>
-            <ArticleDetailsComments id={id}/>
-          </VStack>
-        </Page>
-      </DynamicModuleLoader>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <VStack gap={'16'} max>
+          <ArticleDetailsPageHeader />
+          <ArticleDetails id={id} />
+          <ArticleRecommendationsList />
+          <ArticleDetailsComments id={id} />
+        </VStack>
+      </Page>
+    </DynamicModuleLoader>
   );
 };
 

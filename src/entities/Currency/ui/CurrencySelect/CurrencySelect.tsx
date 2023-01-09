@@ -33,6 +33,7 @@ export const CurrencySelect = memo(
         defaultValue={t('Укажите валюту')}
         value={value}
         items={options}
+        // @ts-ignore
         label={t('Валюта')}
         onChange={onChangeHandler}
         readonly={readonly}

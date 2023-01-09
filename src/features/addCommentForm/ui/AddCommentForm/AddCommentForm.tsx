@@ -57,6 +57,7 @@ const AddCommentForm = memo(
         >
           <Input
             className={cls.input}
+            // @ts-ignore
             placeholder={t('Введите текст комментария')}
             value={text}
             onChange={onCommentTextChange}
