@@ -9,12 +9,8 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
-import {
-  Article,
-  ArticleBlockType,
-  ArticleTextBlock,
-  ArticleView,
-} from '../../model/types/article';
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 
