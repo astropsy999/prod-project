@@ -58,6 +58,7 @@ module.exports = {
           'gap',
           'row',
           'as',
+          'border',
         ],
       },
     ],
