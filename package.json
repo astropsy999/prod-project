@@ -113,7 +113,9 @@
   "dependencies": {
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
+    "@react-spring/web": "^9.6.1",
     "@reduxjs/toolkit": "^1.8.6",
+    "@use-gesture/react": "^10.2.23",
     "axios": "^0.26.1",
     "concurrently": "^7.6.0",
     "cors": "^2.8.5",
