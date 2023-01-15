@@ -1,4 +1,3 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
   InputHTMLAttributes,
   memo,
@@ -6,6 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
