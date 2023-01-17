@@ -719,5 +719,71 @@
       "username": "user",
       "avatar": "https://resizing.flixster.com/UxNyiJpvtsgEQQ0uL8sulwnecgY=/300x300/v2/https://resizing.flixster.com/bmOWHsSaRU5NsA468owFvl3e9hs=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzM4NzIyMzEzLWE4NGEtNGIwMS1hNTBhLWRkOGE3MWI1OWE2OS53ZWJw"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "w0sLIV1"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 5,
+      "feedback": "Отзыв к третьей статье",
+      "id": "gFHNSTh"
+    },
+    {
+      "userId": "1",
+      "articleId": "15",
+      "rate": 1,
+      "feedback": "",
+      "id": "aiaDB-v"
+    },
+    {
+      "userId": "1",
+      "articleId": "8",
+      "rate": 4,
+      "feedback": "",
+      "id": "ARbKxxJ"
+    },
+    {
+      "userId": "1",
+      "articleId": "17",
+      "rate": 2,
+      "id": "tqKix13"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
+    }
   ]
 }
