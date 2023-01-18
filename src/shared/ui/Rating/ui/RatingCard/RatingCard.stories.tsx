@@ -3,7 +3,7 @@ import React from 'react';
 import { RatingCard } from './RatingCard';
 
 export default {
-  title: 'shared/Rating',
+  title: 'entities/Rating/RatingCard',
   component: RatingCard,
   argTypes: {
     backgroundColor: { control: 'color' },

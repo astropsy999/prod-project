@@ -3,7 +3,7 @@ import React from 'react';
 import { NotificationButton } from './NotificationButton';
 
 export default {
-  title: 'shared/NotificationButton',
+  title: 'entities/NotificationButton',
   component: NotificationButton,
   argTypes: {
     backgroundColor: { control: 'color' },
