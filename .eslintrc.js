@@ -89,6 +89,7 @@ module.exports = {
       },
     ],
     'paths-checking-plugin-ys/path-checker': ['error', { alias: '@' }],
+    'paths-checking-plugin-ys/public-api-imports-ys': ['error', { alias: '@' }],
     'react/no-array-index-key': 'off',
     'react/jsx-curly-brace-presence': 'off',
   },

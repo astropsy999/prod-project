@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { CountrySelect } from '@/entities/Country';
-import { Country } from '@/entities/Country/model/types/country';
-import { CurrencySelect } from '@/entities/Currency';
-import { Currency } from '@/entities/Currency/model/types/currency';
+import { CountrySelect, Country } from '@/entities/Country';
+import { CurrencySelect, Currency } from '@/entities/Currency';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Input } from '@/shared/ui/Input/Input';
