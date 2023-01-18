@@ -88,7 +88,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
-    'paths-checking-plugin-ys/path-checker': 'error',
+    'paths-checking-plugin-ys/path-checker': ['error', { alias: '@' }],
     'react/no-array-index-key': 'off',
     'react/jsx-curly-brace-presence': 'off',
   },
