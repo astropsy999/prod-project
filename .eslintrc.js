@@ -89,6 +89,10 @@ module.exports = {
       },
     ],
     'paths-checking-plugin-ys/path-checker': ['error', { alias: '@' }],
+    'paths-checking-plugin-ys/layers-import-ys': [
+      'error',
+      { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] },
+    ],
     'paths-checking-plugin-ys/public-api-imports-ys': [
       'error',
       {
