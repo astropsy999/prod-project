@@ -11,7 +11,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import cls from './AvatarDropdown.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -40,12 +40,12 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
       direction='bottom-left'
       items={[
         ...(isAdminPanelAvailable
-          ? [{ content: t('Админка'), href: RoutePath.admin_panel }]
+          ? [{ content: t('Админка'), href: getRouteAdmin() }]
           : []),
         { content: t('Выйти'), onClick: onLogout },
         {
           content: t('Профиль'),
-          href: RoutePath.profile + authData.id,
+          href: getRouteProfile(authData.id),
         },
       ]}
       trigger={<Avatar size={30} src={authData.avatar} />}
