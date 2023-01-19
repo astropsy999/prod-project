@@ -1,14 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import {
-  ArticleSortSelector,
-  ArticleSortField,
-  ArticlesViewSwitcher,
-  ArticleType,
-  ArticleTypeTabs,
-  ArticleView,
-} from '@/entities/Article';
+import { ArticleSortField, ArticleView, ArticleType } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
@@ -25,6 +18,9 @@ import {
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPageFilters.module.scss';
+import { ArticlesViewSelector } from '@/features/articlesViewSelector';
+import { ArticleTypeTabs } from '@/features/articleTypeTabs';
+import { ArticleSortSelector } from '@/features/articleSortSelector';
 
 interface ArticlesPageFiltersProps {
   className?: string;
@@ -96,7 +92,7 @@ export const ArticlesPageFilters = memo(
             onChangeOrder={onChangeOrder}
             onChangeSort={onChangeSort}
           />
-          <ArticlesViewSwitcher view={view} onViewClick={onChangeView} />
+          <ArticlesViewSelector view={view} onViewClick={onChangeView} />
         </div>
         <Card className={cls.search}>
           <Input

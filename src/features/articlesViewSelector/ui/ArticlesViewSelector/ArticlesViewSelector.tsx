@@ -4,10 +4,10 @@ import CardsIcon from '@/shared/assets/icons/tiled-24-24.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
-import { ArticleView } from '../../model/consts/consts';
-import cls from './ArticlesViewSwitcher.module.scss';
+import cls from './ArticlesViewSelector.module.scss';
+import { ArticleView } from '@/entities/Article';
 
-interface ArticlesViewSwitcherProps {
+interface ArticlesViewSelectorProps {
   className?: string;
   view: ArticleView;
   onViewClick?: (view: ArticleView) => void;
@@ -24,13 +24,13 @@ const viewTypes = [
   },
 ];
 
-export const ArticlesViewSwitcher = memo(
-  ({ className, view, onViewClick }: ArticlesViewSwitcherProps) => {
+export const ArticlesViewSelector = memo(
+  ({ className, view, onViewClick }: ArticlesViewSelectorProps) => {
     const onClick = (newView: ArticleView) => () => {
       onViewClick?.(newView);
     };
     return (
-      <div className={classNames(cls.ArticlesViewSwitcher, {}, [className])}>
+      <div className={classNames(cls.ArticlesViewSelector, {}, [className])}>
         {viewTypes.map((viewType) => (
           <Button
             key={viewType.view}
