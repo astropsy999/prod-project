@@ -56,6 +56,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 ## Тесты
 
 В проекте используются 4 вида тестов:
+
 1) Обычные unit тесты на jest - `npm run test:unit`
 2) Тесты на компоненты с React testing library -`npm run test:unit`
 3) Скриншотное тестирование с loki `npm run test:ui`
@@ -70,20 +71,23 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 В проекте используется eslint для проверки typescript кода и stylelint для проверки файлов со стилями.
 
 Также для строгого контроля главных архитектурных принципов
-используется собственный eslint plugin *eslint-plugin-ulbi-tv-plugin*,
+используется собственный eslint plugin *eslint-plugin-paths-checking-plugin-ys*,
 который содержит 3 правила
+
 1) path-checker - запрещает использовать абсолютные импорты в рамках одного модуля
-2) layer-imports - проверяет корректность использования слоев с точки зрения FSD
+2) layers-import-ys - проверяет корректность использования слоев с точки зрения FSD
    (например widgets нельзя использовать в features и entitites)
-3) public-api-imports - разрешает импорт из других модулей только из public api. Имеет auto fix
+3) public-api-imports-ys - разрешает импорт из других модулей только из public api. Имеет auto fix
 
 ##### Запуск линтеров
+
 - `npm run lint:ts` - Проверка ts файлов линтером
 - `npm run lint:ts:fix` - Исправление ts файлов линтером
 - `npm run lint:scss` - Проверка scss файлов style линтером
 - `npm run lint:scss:fix` - Исправление scss файлов style линтером
 
 ----
+
 ## Storybook
 
 В проекте для каждого компонента описываются стори-кейсы.
@@ -92,6 +96,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 Файл со сторикейсами создает рядом с компонентом с расширением .stories.tsx
 
 Запустить сторибук можно командой:
+
 - `npm run storybook`
 
 Подробнее о [Storybook](/docs/storybook.md)
@@ -100,17 +105,17 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ```typescript jsx
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import {ComponentStory, ComponentMeta} from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Button, ButtonSize, ButtonTheme } from './Button';
-import { Theme } from '@/shared/const/theme';
+import {ThemeDecorator} from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import {Button, ButtonSize, ButtonTheme} from './Button';
+import {Theme} from '@/shared/const/theme';
 
 export default {
     title: 'shared/Button',
     component: Button,
     argTypes: {
-        backgroundColor: { control: 'color' },
+        backgroundColor: {control: 'color'},
     },
 } as ComponentMeta<typeof Button>;
 
@@ -128,18 +133,19 @@ Clear.args = {
 };
 ```
 
-
 ----
 
 ## Конфигурация проекта
 
 Для разработки проект содержит 2 конфига:
+
 1. Webpack - ./config/build
 2. vite - vite.config.ts
 
 Оба сборщика адаптированы под основные фичи приложения.
 
 Вся конфигурация хранится в /config
+
 - /config/babel - babel
 - /config/build - конфигурация webpack
 - /config/jest - конфигурация тестовой среды
@@ -169,7 +175,6 @@ Clear.args = {
 [DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
 
 ----
-
 
 ## Сущности (entities)
 
