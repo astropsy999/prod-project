@@ -1,5 +1,5 @@
 import { rtkApi } from '@/shared/api/rtkApi';
-import { Rating } from '@/shared/ui/Rating';
+import { Rating } from '@/entities/Rating';
 
 interface GetArticleRatingArg {
   userId: string;
