@@ -1,19 +1,9 @@
-.AppLink {
-  color: var(--primary-color);
+.AppLink { color: var(--primary-color);
 
-  &:hover {
-    opacity: 0.8;
-  }
-}
+  &:hover { opacity: 0.8; } }
 
-.primary {
-  color: var(--primary-color);
-}
+.primary { color: var(--primary-color); }
 
-.secondary {
-  color: var(--inverted-primary-color);
-}
+.secondary { color: var(--inverted-primary-color); }
 
-.red {
-  color: red;
-}
+.red { color: red; }

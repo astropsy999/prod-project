@@ -1,5 +1,4 @@
-.Overlay {
-  background: var(--overlay-color);
+.Overlay { background: var(--overlay-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,5 +8,4 @@
   right: 0;
   left: 0;
   z-index: var(--overlay-z-index);
-  cursor: pointer;
-}
+  cursor: pointer; }

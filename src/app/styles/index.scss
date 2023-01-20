@@ -4,33 +4,18 @@
 @import "./themes/normal";
 @import "./themes/gdctheme";
 
-body {
-  font: var(--font-m);
-  color: var(--primary-color);
-}
+body { font: var(--font-m);
+  color: var(--primary-color); }
 
-.app {
-  background: var(--bg-color);
-  min-height: 100vh;
-}
+.app { background: var(--bg-color);
+  min-height: 100vh; }
 
-.content-page {
-  display: flex;
-}
+.content-page { display: flex; }
 
-*::-webkit-scrollbar {
-  width: 10px;
-  height: 8px;
-}
+*::-webkit-scrollbar { width: 10px;
+  height: 8px; }
 
-*::-webkit-scrollbar-track {
-  background: var(--card-bg);
-}
+*::-webkit-scrollbar-track { background: var(--card-bg); }
 
-*::-webkit-scrollbar-thumb {
-  background-color: var(--inverted-primary-color);
-  border-radius: 20px;
-}
-
-
-
+*::-webkit-scrollbar-thumb { background-color: var(--inverted-primary-color);
+  border-radius: 20px; }

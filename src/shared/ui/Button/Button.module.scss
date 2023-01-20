@@ -1,91 +1,55 @@
-.Button {
-  cursor: pointer;
+.Button { cursor: pointer;
   color: var(--primary-color);
   padding: 6px 15px;
 
-  &:hover {
-    opacity: 0.8;
+  &:hover { opacity: 0.8;
     fill-opacity: 0.8;
-    stroke-opacity: 0.8;
-  }
-}
+    stroke-opacity: 0.8; } }
 
 .clear,
-.clear_inverted {
-  border: none;
+.clear_inverted { border: none;
   background: none;
-  outline: none;
-}
+  outline: none; }
 
-.clear_inverted {
-  color: var(--inverted-primary-color);
-}
+.clear_inverted { color: var(--inverted-primary-color); }
 
-.outline {
-  border: 1px solid var(--primary-color);
+.outline { border: 1px solid var(--primary-color);
   color: var(--primary-color);
-  background: none;
-}
+  background: none; }
 
-.outline_red {
-  border: 1px solid var(--red-title-color);
+.outline_red { border: 1px solid var(--red-title-color);
   color: var(--red-text-color);
-  background: none;
-}
+  background: none; }
 
-.outline_inverted {
-  border: 1px solid var(--inverted-primary-color);
+.outline_inverted { border: 1px solid var(--inverted-primary-color);
   color: var(--inverted-primary-color);
-  background: none;
-}
+  background: none; }
 
-.background {
-  background: var(--bg-color);
+.background { background: var(--bg-color);
   color: var(--primary-color);
-  border: none;
-}
+  border: none; }
 
-.background_inverted {
-  background: var(--inverted-bg-color);
+.background_inverted { background: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
-  border: none;
-}
+  border: none; }
 
-.square {
-  padding: 0;
-}
+.square { padding: 0; }
 
-.square.size_m {
-  width: var(--font-line-m);
-  height: var(--font-line-m);
-}
+.square.size_m { width: var(--font-line-m);
+  height: var(--font-line-m); }
 
-.square.size_l {
-  width: var(--font-line-l);
-  height: var(--font-line-l);
-}
+.square.size_l { width: var(--font-line-l);
+  height: var(--font-line-l); }
 
-.square.size_xl {
-  width: var(--font-line-xl);
-  height: var(--font-line-xl);
-}
+.square.size_xl { width: var(--font-line-xl);
+  height: var(--font-line-xl); }
 
-.size_m {
-  font: var(--font-m);
-}
+.size_m { font: var(--font-m); }
 
-.size_l {
-  font: var(--font-l);
-}
+.size_l { font: var(--font-l); }
 
-.size_xl {
-  font: var(--font-xl);
-}
+.size_xl { font: var(--font-xl); }
 
-.disabled {
-  opacity: 0.5;
-}
+.disabled { opacity: 0.5; }
 
-.fullWidth {
-  width: 100%;
-}
+.fullWidth { width: 100%; }

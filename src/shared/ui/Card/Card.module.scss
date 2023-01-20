@@ -1,17 +1,8 @@
-.Card {
-  padding: 15px;
-  border-radius: 12px;
-}
+.Card { padding: 15px;
+  border-radius: 12px; }
 
-.normal {
-  background: var(--card-bg);
+.normal { background: var(--card-bg); }
 
-}
+.outlined { border: 1px solid var(--primary-color); }
 
-.outlined {
-  border: 1px solid var(--primary-color)
-}
-
-.max {
-  width: 100%;
-}
+.max { width: 100%; }

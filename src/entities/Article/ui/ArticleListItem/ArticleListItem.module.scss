@@ -1,108 +1,64 @@
-.ArticleListItem {
-  cursor: pointer;
-}
+.ArticleListItem { cursor: pointer; }
 
-.LIST {
-  .views {
-    margin-left: auto;
-  }
+.LIST { .views { margin-left: auto; }
 
-  .header {
-    display: flex;
-    align-items: center;
-  }
+  .header { display: flex;
+    align-items: center; }
 
-  .username {
-    margin-left: 8px;
-  }
+  .username { margin-left: 8px; }
 
-  .date {
-    margin-left: auto;
-  }
+  .date { margin-left: auto; }
 
-  .title {
-    margin-top: auto;
-  }
+  .title { margin-top: auto; }
 
-  .img {
-    width: 100%;
+  .img { width: 100%;
     max-height: 250px;
     object-fit: cover;
-    margin: 16px 0;
-  }
+    margin: 16px 0; }
 
-  .textBlock {
-    max-height: 200px;
-    overflow-y: hidden;
-  }
+  .textBlock { max-height: 200px;
+    overflow-y: hidden; }
 
-  .footer {
-    display: flex;
+  .footer { display: flex;
     align-items: center;
-    margin-top: 16px;
-  }
+    margin-top: 16px; } }
 
-}
-
-.CARDS {
-  width: 230px;
+.CARDS { width: 230px;
   transition: 0.2s;
 
-  .date {
-    position: absolute;
+  .date { position: absolute;
     right: 0;
     top: 0;
-    display: none;
-  }
+    display: none; }
 
-  &:hover {
-    opacity: 0.8;
+  &:hover { opacity: 0.8;
     transform: scale(1.01);
 
-    .date {
-      display: block;
-    }
-  }
+    .date { display: block; } }
 
-  .imageWrapper {
-    width: 200px;
+  .imageWrapper { width: 200px;
     height: 200px;
-    position: relative;
-  }
+    position: relative; }
 
-  .img {
-    width: 200px;
+  .img { width: 200px;
     height: 200px;
-    object-fit: cover;
-  }
+    object-fit: cover; }
 
-  .infoWrapper {
-    display: flex;
+  .infoWrapper { display: flex;
     align-items: center;
-    margin-top: 8px;
-  }
+    margin-top: 8px; }
 
-  .types p {
-    width: 115px;
+  .types p { width: 115px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-  }
+    text-overflow: ellipsis; }
 
-  .views {
-    margin-left: auto;
-    margin-right: 8px;
-  }
+  .views { margin-left: auto;
+    margin-right: 8px; }
 
-  .title {
-    margin-top: 8px;
-  }
+  .title { margin-top: 8px; }
 
-  .title p {
-    white-space: nowrap;
+  .title p { white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 200px;
-  }
-}
-
+    width: 200px; } }

@@ -1,21 +1,23 @@
-:root {
-  --bg-color: #e8e8ea;
+:root { --bg-color: #e8e8ea;
   --inverted-bg-color: #13134c;
   --primary-color: #0449e0;
   --secondary-color: #0232c2;
   --inverted-primary-color: #049604;
   --inverted-secondary-color: #04ff04;
 
-  // skeleton
+  /* skeleton */
+
   --skeleton-color: #fff;
   --skeleton-shadow: rgba(0 0 0 / 20%);
 
-  // code
+  /* code */
+
   --code-bg: #fff;
 
-  //card
+  /* card */
+
   --card-bg: #cfcfe8;
 
-  //listbox
-  --listbox-bg: #cfcfe8;
-}
+  /* listbox */
+
+  --listbox-bg: #cfcfe8; }
