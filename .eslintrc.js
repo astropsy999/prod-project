@@ -18,7 +18,7 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
-    'prettier',
+    // 'prettier',
     'paths-checking-plugin-ys',
     'unused-imports',
   ],
@@ -84,12 +84,12 @@ module.exports = {
     'operator-linebreak': 'off',
     'no-plusplus': 'off',
     'object-curly-newline': 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto',
-      },
-    ],
+    // 'prettier/prettier': [
+    //   'error',
+    //   {
+    //     endOfLine: 'auto',
+    //   },
+    // ],
     'paths-checking-plugin-ys/path-checker': ['error', { alias: '@' }],
     'paths-checking-plugin-ys/layers-import-ys': [
       'error',
