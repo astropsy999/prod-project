@@ -8,7 +8,7 @@ function MainPage() {
   const { t } = useTranslation('mainpage');
 
   return (
-    <Page>
+    <Page data-testid={'MainPage'}>
       {t('Главная')}
       <Counter />
       <RatingCard

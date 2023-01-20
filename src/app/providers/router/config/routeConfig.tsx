@@ -7,7 +7,7 @@ import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
-import { NotFoundPage } from '@/pages/notFoundPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
 import {
   AppRoutes,
   getRouteMain,
