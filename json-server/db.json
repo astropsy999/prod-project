@@ -694,6 +694,15 @@
         "MANAGER"
       ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://newhealingdimensions.com/wp-content/uploads/2019/09/AstroPsychology-Belief.jpg"
     }
   ],
   "profile": [
