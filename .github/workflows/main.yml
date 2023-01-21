@@ -84,7 +84,7 @@ jobs:
         run: npm run test:ui:report
         if: always()
       - name: move loki
-        run: mv .loki/reports
+        run: mv .loki reports/
         if: always()
       - name: Setup Pages
         uses: actions/configure-pages@v2
