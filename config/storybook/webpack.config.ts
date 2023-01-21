@@ -22,12 +22,22 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   const rules = config.module!.rules as RuleSetRule[];
   config.module!.rules = rules.map((rule) =>
-    /svg/.test(rule.test as string) ? { ...rule, exclude: /\.svg$/i } : rule,
+    /svg/.test(rule.test as string)
+      ? { ...rule, exclude: /\.png|jpe?g|gif|woff2|woff|svg$/i }
+      : rule,
   );
 
   config!.module!.rules!.push({
     test: /\.svg$/,
     use: ['@svgr/webpack'],
+  });
+
+  config!.module!.rules!.push({
+    test: /\.(png|jpe?g|gif|woff2|woff|svg)$/i,
+    loader: 'file-loader',
+    options: {
+      name: '[path][name].[ext]',
+    },
   });
   config!.module!.rules.push(buildCssLoader(true));
   config!.plugins!.push(

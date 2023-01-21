@@ -7,7 +7,7 @@ module.exports = {
       options: { backgrounds: false },
     },
     '@storybook/addon-interactions',
-    'storybook-addon-mock/register',
+    'storybook-addon-mock',
     'storybook-addon-themes',
   ],
   framework: '@storybook/react',
