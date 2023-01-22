@@ -12,6 +12,7 @@
     "build:prod": "webpack  --env mode=production apiUrl=https://prod-project-server.vercel.app/",
     "build:dev": "webpack  --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
+    "prettier": "npx prettier --write **/*.{ts,tsx,json}",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
@@ -31,7 +32,10 @@
     "postinstall": "node ./scripts/clear-cache.js"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
+    "**/*.{ts,tsx}": [
+      "prettiere --list-different",
+      "eslint"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -79,7 +83,7 @@
     "cypress": "^11.0.0",
     "eslint": "^8.30.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
@@ -113,6 +117,7 @@
     "storybook-addon-mock": "^3.2.0",
     "storybook-addon-themes": "^6.1.0",
     "style-loader": "^3.3.1",
+    "stylelint-config-prettier": "^9.0.4",
     "ts-loader": "^9.2.6",
     "ts-morph": "^17.0.1",
     "ts-node": "^10.9.1",
