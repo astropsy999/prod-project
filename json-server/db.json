@@ -549,6 +549,32 @@
           ]
         }
       ]
+    },
+    {
+      "title": "TESTING ARTICLE",
+      "subtitle": "БиологиЯ",
+      "img": "https://avatars.mds.yandex.net/get-zen_doc/2746556/pub_5f50dd7e1a1ddf4776aa5569_5f50decd2506f211d1de6284/scale_1200",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "R3eVJo8"
+    },
+    {
+      "title": "TESTING ARTICLE",
+      "subtitle": "БиологиЯ",
+      "img": "https://avatars.mds.yandex.net/get-zen_doc/2746556/pub_5f50dd7e1a1ddf4776aa5569_5f50decd2506f211d1de6284/scale_1200",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "Du0YAyK"
     }
   ],
   "comments": [
@@ -721,6 +747,17 @@
       "id": "2",
       "first": "Yevhenii",
       "lastname": "Stuzhuk",
+      "age": 42,
+      "currency": "EUR",
+      "country": "Cyprus",
+      "city": "Steni",
+      "username": "user",
+      "avatar": "https://resizing.flixster.com/UxNyiJpvtsgEQQ0uL8sulwnecgY=/300x300/v2/https://resizing.flixster.com/bmOWHsSaRU5NsA468owFvl3e9hs=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzM4NzIyMzEzLWE4NGEtNGIwMS1hNTBhLWRkOGE3MWI1OWE2OS53ZWJw"
+    },
+    {
+      "id": "4",
+      "first": "User",
+      "lastname": "TestUser",
       "age": 42,
       "currency": "EUR",
       "country": "Cyprus",
