@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [svgr({ exportAsDefault: true }), react()],
   resolve: {
     alias: [{ find: '@', replacement: '/src/' }],
+    extensions: ['.ts', '.js', 'tsx', '.json'],
   },
   define: {
     __IS_DEV__: JSON.stringify(true),
