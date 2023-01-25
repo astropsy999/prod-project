@@ -2,6 +2,7 @@ const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
 const https = require('https');
+const http = require('http');
 
 const options = {
   key: fs.readFileSync(path.resolve(__dirname, 'key.pm')),
@@ -59,10 +60,15 @@ server.use((req, res, next) => {
 
 server.use(router);
 const httpsServer = https.createServer(options, server);
+const httpServer = http.createServer(server);
 
 const PORT = 8443;
+const HTTP_PORT = 8000;
 
 // запуск сервера
 httpsServer.listen(PORT, () => {
   console.log(`httpsServer is running on ${PORT} port`);
+});
+httpServer.listen(HTTP_PORT, () => {
+  console.log(`httpServer is running on ${HTTP_PORT} port`);
 });
