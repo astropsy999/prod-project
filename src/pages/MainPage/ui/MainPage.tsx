@@ -8,7 +8,7 @@ function MainPage() {
   return (
     <Page data-testid={'MainPage'}>
       {t('Главная')}
-      <div>Add bash script</div>
+      <div>Add bash script 2</div>
     </Page>
   );
 }
