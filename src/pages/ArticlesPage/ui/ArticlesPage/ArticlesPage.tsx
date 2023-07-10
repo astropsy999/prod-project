@@ -14,6 +14,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { Page } from '@/widgets/Page';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
+import { useArticleItemById } from '../../model/selectors/articlesPageSelectors';
 
 interface ArticlesPageProps {
   className?: string;
@@ -23,17 +24,26 @@ const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
 };
 
+/**
+ * Компонент ArticlesPage, отвечающий за отображение страницы со статьями.
+ *
+ */
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
+  const data = useArticleItemById('2');
+  console.log('data: ', data);
 
+  // Callback-функция onLoadNextPart, вызываемая при загрузке следующей части статей
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
+  // Эффект useInitialEffect, инициализирующий страницу со статьями при первоначальном рендеринге
   useInitialEffect(() => {
     dispatch(initArticlesPage(searchParams));
   });
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
