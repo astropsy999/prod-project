@@ -9,11 +9,11 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ## Скрипты
 
-- `npm run start` - Запуск frontend проекта на webpack dev server
+- `npm run start` - Запуск frontend проекта на webpack dev index
 - `npm run start:vite` - Запуск frontend проекта на vite
-- `npm run start:dev` - Запуск frontend проекта на webpack dev server + backend
+- `npm run start:dev` - Запуск frontend проекта на webpack dev index + backend
 - `npm run start:dev:vite` - Запуск frontend проекта на vite + backend
-- `npm run start:dev:server` - Запуск backend сервера
+- `npm run start:dev:index` - Запуск backend сервера
 - `npm run build:prod` - Сборка в prod режиме
 - `npm run build:dev` - Сборка в dev режиме (не минимизирован)
 - `npm run lint:ts` - Проверка ts файлов линтером

@@ -5,7 +5,12 @@ import { Page } from '@/widgets/Page';
 function MainPage() {
   const { t } = useTranslation('mainpage');
 
-  return <Page data-testid={'MainPage'}>{t('Главная')}</Page>;
+  return (
+    <Page data-testid={'MainPage'}>
+      {t('Главная')}
+      <div>Add bash script 3</div>
+    </Page>
+  );
 }
 
 export default MainPage;
