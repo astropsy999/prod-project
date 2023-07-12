@@ -15,48 +15,53 @@ import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
-import { getFeatureFlag } from '@/shared/lib/features';
+import { getFeatureFlag, toggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 
-// Определяем список редьюсеров для использования в DynamicModuleLoader
+// Define a list of reducers for use in DynamicModuleLoader
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
-  // Используем хук useTranslation для локализации
+  // Use the useTranslation hook for localization
   const { t } = useTranslation('');
 
-  // Получаем параметр id из URL с помощью хука useParams
+  // Get the "id" parameter from the URL using the useParams hook
   const { id } = useParams<{ id: string }>();
 
-  // Фича флаг для рейтинга
-
-  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
-
-  // Если id не определен, возвращаем null
+  // If "id" is not defined, return null
   if (!id) {
     return null;
   }
 
+  // Feature flag for article rating
+  const articleRatingCard = toggleFeatures({
+    name: 'isArticleRatingEnabled',
+    on: () => <ArticleRating articleId={id} />,
+    off: () => <Card>{t('Оценка статей скоро появится')}</Card>,
+  });
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      {/* Создаем страницу с помощью компонента Page и применяем стили */}
+      {/* Create a page using the Page component and apply styles */}
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        {/* Группируем компоненты вертикально с помощью VStack */}
+        {/* Group components vertically using VStack */}
         <VStack gap={'16'} max>
-          {/* Отображаем заголовок страницы */}
+          {/* Display the page header */}
           <ArticleDetailsPageHeader />
-          {/* Отображаем детали статьи с помощью компонента ArticleDetails */}
+          {/* Display the article details using the ArticleDetails component */}
           <ArticleDetails id={id} />
-          {/* Отображаем рейтинг статьи */}
-          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
-          {/* Отображаем список рекомендаций статей */}
+          {/* Display the article rating */}
+          {/* {isArticleRatingEnabled && <ArticleRating articleId={id} />} */}
+          {articleRatingCard}
+          {/* Display the article recommendations list */}
           <ArticleRecommendationsList />
-          {/* Отображаем комментарии к статье */}
+          {/* Display the article comments */}
           <ArticleDetailsComments id={id} />
         </VStack>
       </Page>

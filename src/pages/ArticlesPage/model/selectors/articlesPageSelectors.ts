@@ -2,54 +2,54 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { buildSelector } from '@/shared/lib/store';
 
-// Получение состояния загрузки страницы со статьями
+// Get the loading state of the articles page
 export const getArticlesPageIsLoading = (state: StateSchema) =>
   state.articlesPage?.isLoading || false;
 
-// Получение сообщения об ошибке страницы со статьями
+// Get the error message of the articles page
 export const getArticlesPageError = (state: StateSchema) =>
   state.articlesPage?.error;
 
-// Получение режима отображения страницы со статьями (по умолчанию: ArticleView.CARDS)
+// Get the view mode of the articles page (default: ArticleView.CARDS)
 export const getArticlesPageView = (state: StateSchema) =>
   state.articlesPage?.view || ArticleView.CARDS;
 
-// Получение номера текущей страницы страницы со статьями (по умолчанию: 1)
+// Get the current page number of the articles page (default: 1)
 export const getArticlesPageNum = (state: StateSchema) =>
   state.articlesPage?.page || 1;
 
-// Получение лимита (количества статей на странице) страницы со статьями (по умолчанию: 9)
+// Get the limit (number of articles per page) of the articles page (default: 9)
 export const getArticlesPageLimit = (state: StateSchema) =>
   state.articlesPage?.limit || 9;
 
-// Проверка, есть ли еще статьи для загрузки на странице со статьями
+// Check if there are more articles to load on the articles page
 export const getArticlesPageHasMore = (state: StateSchema) =>
   state.articlesPage?.hasMore;
 
-// Проверка, была ли инициализация страницы со статьями
+// Check if the articles page has been initialized
 export const getArticlesPageInited = (state: StateSchema) =>
   state.articlesPage?._inited;
 
-// Получение порядка сортировки статей (asc или desc) (по умолчанию: 'asc')
+// Get the sorting order of the articles (asc or desc) (default: 'asc')
 export const getArticlesPageOrder = (state: StateSchema) =>
   state.articlesPage?.order ?? 'asc';
 
-// Получение поля для сортировки статей (по умолчанию: ArticleSortField.CREATED)
+// Get the sorting field of the articles (default: ArticleSortField.CREATED)
 export const getArticlesPageSort = (state: StateSchema) =>
   state.articlesPage?.sort ?? ArticleSortField.CREATED;
 
-// Получение поискового запроса для фильтрации статей (по умолчанию: '')
+// Get the search query for filtering articles (default: '')
 export const getArticlesPageSearch = (state: StateSchema) =>
   state.articlesPage?.search ?? '';
 
-// Получение типа статей для отображения (по умолчанию: ArticleType.ALL)
+// Get the type of articles to display (default: ArticleType.ALL)
 export const getArticlesPageType = (state: StateSchema) =>
   state.articlesPage?.type ?? ArticleType.ALL;
 
-// Экспортируем хук useArticleItemById, полученный с помощью функции buildSelector.
-// Хук useArticleItemById будет возвращать значение статьи с заданным id из состояния приложения.
+// Export the useArticleItemById hook obtained with the buildSelector function.
+// The useArticleItemById hook will return the article value with the given id from the application state.
 
 export const [useArticleItemById] = buildSelector(
-  // Определяем селектор, который принимает состояние и id статьи
+  // Define the selector that takes the state and article id
   (state, id: string) => state.articlesPage?.entities[id],
 );

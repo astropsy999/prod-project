@@ -25,21 +25,21 @@ const reducers: ReducersList = {
 };
 
 /**
- * Компонент ArticlesPage, отвечающий за отображение страницы со статьями.
- *
- */
+
+The ArticlesPage component responsible for displaying the articles page.
+*/
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
   const data = useArticleItemById('2');
   console.log('data: ', data);
 
-  // Callback-функция onLoadNextPart, вызываемая при загрузке следующей части статей
+  // Callback function onLoadNextPart, called when loading the next part of articles
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
-  // Эффект useInitialEffect, инициализирующий страницу со статьями при первоначальном рендеринге
+  // useInitialEffect, initializes the articles page on initial rendering
   useInitialEffect(() => {
     dispatch(initArticlesPage(searchParams));
   });
