@@ -4,6 +4,7 @@ import { User, UserSchema } from '../types/user';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { saveJsonSettings } from '../services/saveJsonSettings';
 import { JsonSettings } from '../types/jsonSettings';
+import { initAuthData } from '../services/initAuthData';
 
 // Начальное состояние для схемы пользователя
 const initialState: UserSchema = {
@@ -19,17 +20,9 @@ export const userSlice = createSlice({
     setAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload;
       setFeatureFlags(action.payload.features);
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.id);
     },
-    // Инициализация данных аутентификации
-    initAuthData: (state) => {
-      const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-      if (user) {
-        const json = JSON.parse(user) as User;
-        state.authData = json;
-        setFeatureFlags(json.features);
-      }
-      state._inited = true;
-    },
+
     // Выход из системы
     logout: (state) => {
       state.authData = undefined;
@@ -47,7 +40,18 @@ export const userSlice = createSlice({
             state.authData.jsonSettings = payload;
           }
         },
-      );
+      )
+      .addCase(
+        initAuthData.fulfilled,
+        (state, { payload }: PayloadAction<User>) => {
+          state.authData = payload;
+          setFeatureFlags(payload.features);
+          state._inited = true;
+        },
+      )
+      .addCase(initAuthData.rejected, (state) => {
+        state._inited = true;
+      });
   },
 });
 
