@@ -701,7 +701,8 @@
       "jsonSettings": {
         "theme": "app_gdc_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpened": false
+        "settingsPageHasBeenOpened": false,
+        "wasArticlesPageOpened": true
       },
       "avatar": "https://newhealingdimensions.com/wp-content/uploads/2019/09/AstroPsychology-Belief.jpg"
     },
@@ -719,7 +720,8 @@
       "jsonSettings": {
         "theme": "app_dark_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpened": false
+        "settingsPageHasBeenOpened": false,
+        "wasArticlesPageOpened": true
       },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
@@ -737,7 +739,8 @@
       "jsonSettings": {
         "theme": "app_gdc_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpened": false
+        "settingsPageHasBeenOpened": false,
+        "wasArticlesPageOpened": true
       },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
