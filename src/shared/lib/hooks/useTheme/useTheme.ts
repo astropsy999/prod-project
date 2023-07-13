@@ -3,17 +3,20 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { Theme } from '../../../const/theme';
 import { LOCAL_STORAGE_THEME_KEY } from '../../../const/localstorage';
 
+// Define the return type for the useTheme hook
 interface UseThemeResult {
-  toggleTheme: () => void;
+  toggleTheme: (saveAction?: (theme: Theme) => void) => void;
   theme: Theme;
 }
 
 export function useTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  const toggleTheme = () => {
+  // Define the toggleTheme function
+  const toggleTheme = (saveAction?: (theme: Theme) => void) => {
     let newTheme: Theme;
 
+    // Switch between themes based on the current theme value
     switch (theme) {
       case Theme.DARK:
         newTheme = Theme.LIGHT;
@@ -27,12 +30,17 @@ export function useTheme(): UseThemeResult {
       default:
         newTheme = Theme.GDC;
     }
+
+    // Set the new theme using the setTheme function from the context
     setTheme?.(newTheme);
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+
+    // Call the optional saveAction function with the new theme
+    saveAction?.(newTheme);
   };
 
+  // Return the theme and toggleTheme function as the result
   return {
-    theme: theme || Theme.LIGHT,
+    theme: theme || Theme.LIGHT, // Use a default theme if the theme is undefined
     toggleTheme,
   };
 }
