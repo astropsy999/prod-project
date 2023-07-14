@@ -15,8 +15,13 @@ import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
-import { getFeatureFlag, toggleFeatures } from '@/shared/lib/features';
+import {
+  ToggleFeatures,
+  getFeatureFlag,
+  toggleFeatures,
+} from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
+import { off } from 'process';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -40,11 +45,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   }
 
   // Feature flag for article rating
-  const articleRatingCard = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>{t('Оценка статей скоро появится')}</Card>,
-  });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -58,7 +58,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           <ArticleDetails id={id} />
           {/* Display the article rating */}
           {/* {isArticleRatingEnabled && <ArticleRating articleId={id} />} */}
-          {articleRatingCard}
+          <ToggleFeatures
+            feature='isArticleRatingEnabled'
+            on={<ArticleRating articleId={id} />}
+            off={<Card>{t('Оценка статей скоро появится')}</Card>}
+          />
           {/* Display the article recommendations list */}
           <ArticleRecommendationsList />
           {/* Display the article comments */}
