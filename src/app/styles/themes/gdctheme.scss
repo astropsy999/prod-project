@@ -1,9 +1,21 @@
-.app_gdc_theme { --bg-color: #f4f9fb;
+.app_gdc_theme {
+  --bg-color: #f4f9fb;
   --inverted-bg-color: #3e678e;
   --primary-color: #2189a2;
   --secondary-color: #43a19d;
   --inverted-primary-color: #21e1ef;
   --inverted-secondary-color: #f4f9fb;
+
+  // redesigned
+  --dark-bg-redesigned: #fff3d6;
+  --bg-redesigned: #f0c048;
+  --light-bg-redesigned: #f2d791;
+  --text-redesigned: #1b1311;
+  --hint-redesigned: #b8b2a2;
+  --cancel-redesigned: #ff5e5e;
+  --save-redesigned: #52fa81;
+  --icon-redesigned: #4875f0;
+  --accent-redesigned: #1d59ff;
 
   /* skeleton */
 
@@ -20,4 +32,5 @@
 
   /* listbox */
 
-  --listbox-bg: #bfdbe8; }
+  --listbox-bg: #bfdbe8;
+}

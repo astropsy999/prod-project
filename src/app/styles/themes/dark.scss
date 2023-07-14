@@ -1,9 +1,22 @@
-.app_dark_theme { --bg-color: #13134c;
+.app_dark_theme {
+  --bg-color: #13134c;
   --inverted-bg-color: #e8e8ea;
   --primary-color: #049604;
   --secondary-color: #04ff04;
   --inverted-primary-color: #0449e0;
   --inverted-secondary-color: #0232c2;
+
+  /*redesigned*/
+
+  --dark-bg-redesigned: #090f11;
+  --bg-redesigned: #0c1214;
+  --light-bg-redesigned: #151c1f;
+  --text-redesigned: #dbdbdb;
+  --hint-redesigned: #555555;
+  --cancel-redesigned: #d95757;
+  --save-redesigned: #6cd98b;
+  --icon-redesigned: #74a2b2;
+  --accent-redesigned: #5ed3f3;
 
   /* skeleton */
 
@@ -20,4 +33,5 @@
 
   /* listbox */
 
-  --listbox-bg: #2b2b90; }
+  --listbox-bg: #2b2b90;
+}

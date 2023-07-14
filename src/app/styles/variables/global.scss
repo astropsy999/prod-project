@@ -1,9 +1,12 @@
-:root { --font-family-main: "Consolas", "Times New Roman", serif;
+:root {
+  --font-family-main: 'Consolas', 'Times New Roman', serif;
+  --font-family-text-redesigned: 'Nunito Sans', sans-serif;
+  --font-family-headers-redesigned: 'Roboto', sans-serif;
 
   /* s */
   --font-size-s: 10px;
   --font-line-s: 14px;
-  --font-m: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
 
   /* m */
   --font-size-m: 14px;
@@ -35,4 +38,27 @@
 
   --overlay-color: rgba(0 0 0 / 60%);
   --red-text-color: #750000;
-  --red-title-color: #e10303; }
+  --red-title-color: #e10303;
+
+  // Redesigned
+
+  /* s */
+
+  --font-s-redesigned: var(--font-size-s) / var(--font-line-s)
+    var(--font-family-text-redesigned);
+
+  /* m */
+
+  --font-m-redesigned: var(--font-size-m) / var(--font-line-m)
+    var(--font-family-text-redesigned);
+
+  /* l */
+
+  --font-l-redesigned: var(--font-size-l) / var(--font-line-l)
+    var(--font-family-headers-redesigned);
+
+  /* xl */
+
+  --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl)
+    var(--font-family-headers-redesigned);
+}
