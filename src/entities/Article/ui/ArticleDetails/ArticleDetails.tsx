@@ -12,11 +12,11 @@ import {
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Icon } from '@/shared/ui/Icon';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleBlockType } from '../../model/consts/consts';
 import {
   getArticleDetailsData,

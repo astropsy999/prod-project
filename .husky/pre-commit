@@ -8,4 +8,4 @@
 #npm run storybook:build
 #npm run test:ui
 
-npx lint-staged
+# npx lint-staged

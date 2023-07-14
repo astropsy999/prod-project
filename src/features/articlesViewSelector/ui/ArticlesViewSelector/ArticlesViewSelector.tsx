@@ -2,8 +2,8 @@ import { memo } from 'react';
 import ListIcon from '@/shared/assets/icons/list-24-24.svg';
 import CardsIcon from '@/shared/assets/icons/tiled-24-24.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 import cls from './ArticlesViewSelector.module.scss';
 import { ArticleView } from '@/entities/Article';
 

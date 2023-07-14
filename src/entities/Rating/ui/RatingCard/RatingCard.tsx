@@ -5,14 +5,14 @@ import {
   Button,
   ButtonSize,
   ButtonTheme,
-} from '../../../../shared/ui/Button/Button';
-import { Card } from '../../../../shared/ui/Card/Card';
-import { Drawer } from '../../../../shared/ui/Drawer/Drawer';
-import { Input } from '../../../../shared/ui/Input/Input';
-import { Modal } from '../../../../shared/ui/Modal/Modal';
-import { HStack, VStack } from '../../../../shared/ui/Stack';
-import { StarRating } from '../../../../shared/ui/StarRating/StarRating';
-import { Text } from '../../../../shared/ui/Text/Text';
+} from '../../../../shared/ui/deprecated/Button/Button';
+import { Card } from '../../../../shared/ui/deprecated/Card/Card';
+import { Drawer } from '../../../../shared/ui/deprecated/Drawer/Drawer';
+import { Input } from '../../../../shared/ui/deprecated/Input/Input';
+import { Modal } from '../../../../shared/ui/deprecated/Modal/Modal';
+import { HStack, VStack } from '../../../../shared/ui/deprecated/Stack';
+import { StarRating } from '../../../../shared/ui/deprecated/StarRating/StarRating';
+import { Text } from '../../../../shared/ui/deprecated/Text/Text';
 
 interface RatingCardProps {
   className?: string;
