@@ -3,7 +3,7 @@ import { FeatureFlags } from '@/shared/types/featureFlags';
 // ФИЧИ НЕ МЕНЯЮТСЯ В ХОДЕ СЕССИИ, ИХ НЕОБЯЗАТЕЛЬНО ДЕЛАТЬ РЕАКТИВНЫМИ!
 
 // Объявляем переменную featureFlags типа FeatureFlags
-let featureFlags: FeatureFlags;
+let featureFlags: FeatureFlags = {};
 
 // Функция setFeatureFlags используется для установки значений featureFlags
 export function setFeatureFlags(newFeatureFlags?: FeatureFlags) {
@@ -16,5 +16,5 @@ export function setFeatureFlags(newFeatureFlags?: FeatureFlags) {
 // Функция getFeatureFlag возвращает значение конкретной фичи
 export function getFeatureFlag(flag: keyof FeatureFlags) {
   // Возвращаем значение фичи из переменной featureFlags
-  return featureFlags[flag];
+  return featureFlags?.[flag];
 }
