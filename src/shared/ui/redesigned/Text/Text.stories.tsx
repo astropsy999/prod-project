@@ -1,77 +1,77 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/TemeDecorator';
-import { Text, TextSize, TextTheme } from './Text';
 import { Theme } from '@/shared/const/theme';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Text } from './Text';
 
 export default {
-  title: 'shared/Text',
-  component: Text,
+  title: 'shared/Text', // Storybook title for the component
+  component: Text, // Component being documented
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: 'color' }, // Define the control for the backgroundColor prop
   },
 } as ComponentMeta<typeof Text>;
 
-const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
+const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />; // Define the template for the component story
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({}); // Primary story
 Primary.args = {
   title: 'Title Title',
   text: 'Text Text Text Text',
 };
 
-export const Error = Template.bind({});
+export const Error = Template.bind({}); // Error story
 Error.args = {
   title: 'Title Title',
   text: 'Text Text Text Text',
-  theme: TextTheme.ERROR,
+  variant: 'error',
 };
 
-export const OnlyTitle = Template.bind({});
+export const OnlyTitle = Template.bind({}); // OnlyTitle story
 OnlyTitle.args = {
   title: 'Title Title',
 };
 
-export const OnlyText = Template.bind({});
+export const OnlyText = Template.bind({}); // OnlyText story
 OnlyText.args = {
   text: 'Text Text Text Text',
 };
 
-export const PrimaryDark = Template.bind({});
+export const PrimaryDark = Template.bind({}); // PrimaryDark story
 PrimaryDark.args = {
   title: 'Title Title',
   text: 'Text Text Text Text',
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
-export const OnlyTitleDark = Template.bind({});
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]; // Apply the ThemeDecorator with the DARK theme
+
+export const OnlyTitleDark = Template.bind({}); // OnlyTitleDark story
 OnlyTitleDark.args = {
   title: 'Title Title',
 };
-OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
+OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)]; // Apply the ThemeDecorator with the DARK theme
 
-export const OnlyTextDark = Template.bind({});
+export const OnlyTextDark = Template.bind({}); // OnlyTextDark story
 OnlyTextDark.args = {
   text: 'Text Text Text Text',
 };
-OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]; // Apply the ThemeDecorator with the DARK theme
 
-export const SizeL = Template.bind({});
+export const SizeL = Template.bind({}); // SizeL story
 SizeL.args = {
   title: 'Title Title',
   text: 'Text Text Text Text',
-  size: TextSize.L,
+  size: 'l',
 };
 
-export const SizeM = Template.bind({});
+export const SizeM = Template.bind({}); // SizeM story
 SizeM.args = {
   title: 'Title Title',
   text: 'Text Text Text Text',
-  size: TextSize.M,
+  size: 'm',
 };
 
-export const SizeS = Template.bind({});
+export const SizeS = Template.bind({}); // SizeS story
 SizeS.args = {
   title: 'Title Title',
   text: 'Text Text Text Text',
-  size: TextSize.S,
+  size: 's',
 };

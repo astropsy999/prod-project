@@ -1,5 +1,11 @@
-.ArticlesPage { min-height: 100%; }
+.ArticlesPage {
+  min-height: 100%;
 
-.commentTitle { margin-top: 20px; }
+  .list {
+    margin-top: 30px;
+  }
+}
 
-.list { margin-top: 30px; }
+.commentTitle {
+  margin-top: 20px;
+}
