@@ -4,52 +4,113 @@
   background: var(--inverted-bg-color);
   position: relative;
   transition: width 0.3s;
+
+  .switchers {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .items {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .link {
+    margin-left: 10px;
+    opacity: 1;
+  }
+
+  .lang {
+    margin-left: 20px;
+  }
+
+  .collapseBtn {
+    position: absolute;
+    right: -24px;
+    bottom: 32px;
+  }
+
+  .icon {
+    fill: var(--inverted-primary-color);
+  }
+
+  .collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lang {
+      margin-left: 0;
+    }
+
+    .link {
+      opacity: 0;
+      transition: 0.2s opacity;
+      width: 0;
+    }
+  }
 }
 
-.switchers {
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  z-index: 10;
+.SidebarRedesigned {
+  background: var(--light-bg-redesigned);
+  width: 220px;
+  height: 100%;
+  border-radius: 32px;
+  position: relative;
+
+  .appLogo {
+    padding-top: 5px;
+  }
+
+  .items {
+    margin-top: 40px;
+    margin-left: 20px;
+  }
+
+  .collapseBtn {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    z-index: 10;
+    transform: rotate(90deg);
+  }
+
+  .switchers {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 10;
+    gap: 16px;
+  }
 }
 
-.items {
-  margin-top: 20px;
-  margin-left: 20px;
-}
-
-.item {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.link {
-  margin-left: 10px;
-  opacity: 1;
-}
-
-.lang {
-  margin-left: 20px;
-}
-
-.collapseBtn {
-  position: absolute;
-  right: -24px;
-  bottom: 32px;
-}
-
-.icon {
-  fill: var(--inverted-primary-color);
-}
-
-.collapsed {
-  width: var(--sidebar-width-collapsed);
+.collapsedRedesigned {
+  width: 50px;
 
   .switchers {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .items {
+    margin-top: 40px;
+    margin-left: 0;
+    display: flex;
     align-items: center;
   }
 
@@ -62,11 +123,12 @@
     transition: 0.2s opacity;
     width: 0;
   }
-}
 
-.SidebarRedesigned {
-  background: var(--light-bg-redesigned);
-  width: 220px;
-  height: 100%;
-  border-radius: 32px;
+  .collapseBtn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    z-index: 10;
+    transform: rotate(-90deg);
+  }
 }

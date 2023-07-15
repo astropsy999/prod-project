@@ -1,10 +1,16 @@
 import { saveJsonSettings } from '@/entities/User';
-import ThemeIcon from '@/shared/assets/icons/theme-light.svg';
+import ThemeIconDeprecated from '@/shared/assets/icons/theme-light.svg';
+import ThemeIcon from '@/shared/assets/icons/theme.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Icon } from '@/shared/ui/deprecated/Icon';
+import {
+  Button as ButtonDeprecated,
+  ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { memo, useCallback } from 'react';
 
 interface ThemeSwitcherProps {
@@ -25,14 +31,25 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   }, [dispatch, toggleTheme]);
 
   return (
+    <ToggleFeatures
+      feature={'isAppRedesigned'}
+      on={<Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} />}
+      off={
+        <ButtonDeprecated
+          theme={ButtonTheme.CLEAR}
+          className={classNames('', {}, [className])}
+          onClick={onToggleHandler}
+        >
+          {/* Render the appropriate theme icon based on the current theme */}
+          <IconDeprecated
+            Svg={ThemeIconDeprecated}
+            width={40}
+            height={40}
+            inverted
+          />
+        </ButtonDeprecated>
+      }
+    />
     // Render a button that triggers the theme toggle on click
-    <Button
-      theme={ButtonTheme.CLEAR}
-      className={classNames('', {}, [className])}
-      onClick={onToggleHandler}
-    >
-      {/* Render the appropriate theme icon based on the current theme */}
-      <Icon Svg={ThemeIcon} width={40} height={40} inverted />
-    </Button>
   );
 });

@@ -1,14 +1,14 @@
 {
-  "Язык": "Eng",
+  "Язык": "RUS",
   "Главная": "Main",
   "О нас": "About",
   "Сторінку не знайдено": "Page not found",
   "Виникла непередбачена помилка": "An unexpected error has occurred",
   "Оновити сторінку": "Refresh",
   "Згорнути": "Toggle",
-  "Яз": "En",
+  "Яз": "RU",
   "Войти": "Login",
-  "Введите Имя":"Enter Username",
+  "Введите Имя": "Enter Username",
   "Введите Пароль": "Enter Password",
   "Авторизоваться": "Authorization",
   "Помилка": "Data Error",
@@ -16,6 +16,4 @@
   "Профиль": "Profile",
   "Сторінка Профілю": "Profile page",
   "Статьи": "Articles"
-
-
 }
