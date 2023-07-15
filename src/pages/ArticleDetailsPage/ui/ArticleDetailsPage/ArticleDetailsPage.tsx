@@ -10,7 +10,6 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
@@ -22,6 +21,7 @@ import {
 } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { off } from 'process';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleDetailsPageProps {
   className?: string;

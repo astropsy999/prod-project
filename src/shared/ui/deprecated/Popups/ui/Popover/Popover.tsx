@@ -13,10 +13,6 @@ interface PopoverProps {
   children: ReactNode;
 }
 
-/**
- * This is an old component please use the new one from 'redesigned' folder
- * @deprecated
- */
 export const Popover = memo(
   ({
     className,

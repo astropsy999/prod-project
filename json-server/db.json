@@ -700,7 +700,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_gdc_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": false,
         "wasArticlesPageOpened": true

@@ -47,10 +47,6 @@ export interface FlexProps extends DivProps {
   max?: boolean;
 }
 
-/**
- * This is an old component please use the new one from 'redesigned' folder
- * @deprecated
- */
 export const Flex = ({
   className,
   children,
