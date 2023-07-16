@@ -8,35 +8,41 @@ export type ButtonSize = 'm' | 'l' | 'xl';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  /**
-   * Тема кнопки отвечает за визуал (пустая, в рамке и т.д)
-   */
   variant?: ButtonVariant;
-  /**
-   * Флаг, делающий кнопку квадратной
-   */
   square?: boolean;
-  /**
-   * Размер кнопки в соответствии с дизайн системой
-   */
   size?: ButtonSize;
-  /**
-   * Запрещает нажатие кнопки
-   */
   disabled?: boolean;
   children?: ReactNode;
   fullWidth?: boolean;
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 }
 
+/**
+ * The Button component is a customizable button element.
+ *
+ * Props:
+ * - className: Additional CSS class for the button.
+ * - variant: The visual theme of the button ('clear', 'outline', 'filled').
+ * - square: Whether the button should be rendered as a square.
+ * - size: The size of the button ('m', 'l', 'xl').
+ * - disabled: Whether the button is disabled.
+ * - children: The content of the button.
+ * - fullWidth: Whether the button should take up the full available width.
+ * - addonLeft: Additional content to be displayed on the left side of the button.
+ * - addonRight: Additional content to be displayed on the right side of the button.
+ */
 export const Button = memo((props: ButtonProps) => {
   const {
     className,
     children,
     variant = 'outline',
+    square,
     disabled,
     fullWidth,
-    square,
     size = 'm',
+    addonLeft,
+    addonRight,
     ...otherProps
   } = props;
 
@@ -44,7 +50,9 @@ export const Button = memo((props: ButtonProps) => {
     [cls.square]: square,
     [cls.disabled]: disabled,
     [cls.fullWidth]: fullWidth,
+    [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
   };
+
   return (
     <button
       type='button'
@@ -56,7 +64,9 @@ export const Button = memo((props: ButtonProps) => {
       disabled={disabled}
       {...otherProps}
     >
+      <div className={cls.addonLeft}>{addonLeft}</div>
       {children}
+      <div className={cls.addonRight}>{addonRight}</div>
     </button>
   );
 });

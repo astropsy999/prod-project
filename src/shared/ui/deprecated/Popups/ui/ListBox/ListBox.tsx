@@ -7,6 +7,7 @@ import { Button } from '../../../Button/Button';
 import { MapDirectionClass } from '../../styles/consts';
 import popupsCls from '../../styles/popups.module.scss';
 import cls from './ListBox.module.scss';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 
 export interface ListBoxItem {
   value: string;

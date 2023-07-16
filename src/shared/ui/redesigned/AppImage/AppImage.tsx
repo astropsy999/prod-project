@@ -12,11 +12,23 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   errorFallBack?: ReactElement;
 }
 
+/**
+ * Компонент AppImage отображает изображение.
+ * Поддерживает различные настройки и отображение вариантов при загрузке и ошибке.
+ *
+ * Props:
+ * - className: Дополнительный CSS-класс для изображения.
+ * - src: URL адрес изображения.
+ * - alt: Альтернативный текст для изображения (по умолчанию: 'Image').
+ * - fallBack: Вариант отображения, когда изображение еще загружается.
+ * - errorFallBack: Вариант отображения, когда возникла ошибка при загрузке изображения.
+ */
+
 export const AppImage = memo(
   ({
     className,
     src,
-    alt = 'Image',
+    alt = 'Изображение',
     fallBack,
     errorFallBack,
     ...otherProps
