@@ -700,7 +700,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_gdc_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": false,
         "wasArticlesPageOpened": true
@@ -762,7 +762,7 @@
       "lastname": "Стужук",
       "age": 42,
       "currency": "UAH",
-      "country": "Cyprus",
+      "country": "Ukraine",
       "city": "Irshansk",
       "username": "admin",
       "avatar": "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"

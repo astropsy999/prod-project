@@ -11,23 +11,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    z-index: 10;
-  }
-
-  .items {
-    margin-top: 20px;
-    margin-left: 20px;
-  }
-
-  .item {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-  }
-
-  .link {
-    margin-left: 10px;
-    opacity: 1;
   }
 
   .lang {
@@ -36,31 +19,27 @@
 
   .collapseBtn {
     position: absolute;
-    right: -24px;
+    right: -32px;
     bottom: 32px;
+    z-index: 10;
   }
 
-  .icon {
-    fill: var(--inverted-primary-color);
+  .items {
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .switchers {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .collapsed {
-    width: var(--sidebar-width-collapsed);
-
-    .switchers {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .lang {
-      margin-left: 0;
-    }
-
-    .link {
-      opacity: 0;
-      transition: 0.2s opacity;
-      width: 0;
-    }
+  .lang {
+    margin-left: 0;
   }
 }
 
@@ -72,17 +51,16 @@
   position: relative;
 
   .appLogo {
-    padding-top: 5px;
+    padding-top: 20px;
   }
 
   .items {
     margin-top: 40px;
-    margin-left: 20px;
   }
 
   .collapseBtn {
     position: absolute;
-    right: 32px;
+    right: 0;
     top: 50%;
     z-index: 10;
     transform: rotate(90deg);
@@ -94,7 +72,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    z-index: 10;
     gap: 16px;
   }
 }
@@ -108,8 +85,6 @@
   }
 
   .items {
-    margin-top: 40px;
-    margin-left: 0;
     display: flex;
     align-items: center;
   }
@@ -118,17 +93,12 @@
     margin-left: 0;
   }
 
-  .link {
-    opacity: 0;
-    transition: 0.2s opacity;
-    width: 0;
+  .collapseBtn {
+    transform: rotate(-90deg);
   }
 
-  .collapseBtn {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    z-index: 10;
-    transform: rotate(-90deg);
+  .switchers {
+    flex-direction: column;
+    align-items: center;
   }
 }
