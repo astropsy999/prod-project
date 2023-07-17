@@ -50,6 +50,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
           value={search}
           placeholder={t('Поиск')}
           addonLeft={<Icon Svg={SearchIcon} />}
+          size='s'
         />
         <ArticleSortSelector
           sort={sort}

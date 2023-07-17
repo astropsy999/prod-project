@@ -11,14 +11,22 @@ interface AvatarProps {
   src?: string;
   size?: number;
   alt?: string;
+  margins?: number;
 }
 
-export const Avatar = ({ className, src, size = 100, alt }: AvatarProps) => {
+export const Avatar = ({
+  className,
+  src,
+  size = 100,
+  alt,
+  margins = 20,
+}: AvatarProps) => {
   const mods: Mods = {};
   const styles = useMemo<CSSProperties>(
     () => ({
       width: size,
       height: size,
+      margin: margins,
     }),
     [size],
   );
