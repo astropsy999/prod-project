@@ -39,7 +39,7 @@
   }
 }
 
-.CARD {
+.CARDS {
   width: 230px;
   transition: 0.2s;
   cursor: pointer;
@@ -99,5 +99,11 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+.ArticleListItemRedesigned {
+  &.LIST {
+    width: 100%;
   }
 }

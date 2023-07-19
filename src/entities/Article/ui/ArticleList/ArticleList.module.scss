@@ -1,11 +1,21 @@
-.LIST { .card { margin-bottom: 30px; } }
+.LIST {
+  .card {
+    margin-bottom: 30px;
+  }
+}
 
-.CARDS { display: flex;
+.CARDS {
+  display: flex;
   flex-wrap: wrap;
   gap: 30px;
 
-  .card { display: inline-flex;
-    height: 300px; }
+  .card {
+    display: inline-flex;
+    height: 300px;
+  }
 
-  .row { display: flex;
-    gap: 30px; } }
+  .row {
+    display: flex;
+    gap: 30px;
+  }
+}

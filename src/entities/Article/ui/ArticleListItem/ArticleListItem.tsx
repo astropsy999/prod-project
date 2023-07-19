@@ -6,18 +6,18 @@ import { ArticleListItemDeprecated } from './ArticleListItemDeprecated/ArticleLi
 import { ArticleListItemRedesigned } from './ArticleListItemRedesigned/ArticleListItemRedesigned';
 
 export interface ArticleListItemProps {
-  className?: string;
-  article: Article;
-  view: ArticleView;
-  target?: HTMLAttributeAnchorTarget;
+    className?: string;
+    article: Article;
+    view: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-  return (
-    <ToggleFeatures
-      feature='isAppRedesigned'
-      on={<ArticleListItemRedesigned {...props} />}
-      off={<ArticleListItemDeprecated {...props} />}
-    />
-  );
+    return (
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={<ArticleListItemRedesigned {...props} />}
+            off={<ArticleListItemDeprecated {...props} />}
+        />
+    );
 });

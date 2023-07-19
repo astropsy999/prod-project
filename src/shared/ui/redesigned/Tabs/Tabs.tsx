@@ -48,7 +48,7 @@ export const Tabs = memo(
               )}
               key={tab.value}
               onClick={clickHandle(tab)}
-              borderRadius='round'
+              border='round'
             >
               {tab.content}
             </Card>
