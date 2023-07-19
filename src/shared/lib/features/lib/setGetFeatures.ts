@@ -18,3 +18,6 @@ export function getFeatureFlag(flag: keyof FeatureFlags) {
   // Возвращаем значение фичи из переменной featureFlags
   return featureFlags?.[flag];
 }
+export function getAllFeatureFlags() {
+  return featureFlags;
+}

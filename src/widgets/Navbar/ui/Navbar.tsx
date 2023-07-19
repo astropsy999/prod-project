@@ -13,6 +13,7 @@ import cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Card } from '@/shared/ui/redesigned/Card';
 
 interface NavbarProps {
   className?: string;
@@ -37,7 +38,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         feature='isAppRedesigned'
         on={
           <header className={classNames(cls.NavbarRedesigned)}>
-            <HStack gap={'16'} className={cls.actions}>
+            <HStack>
               <NotificationButton />
               <AvatarDropdown />
             </HStack>

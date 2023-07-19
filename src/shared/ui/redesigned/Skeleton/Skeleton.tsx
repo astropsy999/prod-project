@@ -9,10 +9,6 @@ interface SkeletonProps {
   border?: string | number;
 }
 
-/**
- * This is an old component please use the new one from 'redesigned' folder
- * @deprecated
- */
 export const Skeleton = memo(
   ({ className, width, height, border }: SkeletonProps) => {
     const styles: CSSProperties = {
