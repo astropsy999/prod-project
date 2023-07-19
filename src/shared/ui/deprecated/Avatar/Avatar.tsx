@@ -44,7 +44,7 @@ export const Avatar = ({
   );
   return (
     <AppImage
-      fallBack={fallBack}
+      fallback={fallBack}
       errorFallBack={errorFallback}
       src={src}
       alt={alt}

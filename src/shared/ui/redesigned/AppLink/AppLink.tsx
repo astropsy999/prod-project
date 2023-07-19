@@ -3,11 +3,11 @@ import { memo, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
-export type AppLinkTheme = 'primary' | 'secondary' | 'red';
+export type AppLinkVariant = 'primary' | 'red';
 
 interface AppLinkProps extends LinkProps {
   className?: string;
-  variant?: AppLinkTheme;
+  variant?: AppLinkVariant;
   children?: ReactNode;
   activeClassName?: string;
 }

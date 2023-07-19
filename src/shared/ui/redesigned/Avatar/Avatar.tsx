@@ -35,7 +35,7 @@ export const Avatar = ({
   const errorFallback = <Icon Svg={UserIcon} width={size} height={size} />;
   return (
     <AppImage
-      fallBack={fallBack}
+      fallback={fallBack}
       errorFallBack={errorFallback}
       src={src}
       alt={alt}

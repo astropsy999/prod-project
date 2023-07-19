@@ -1,6 +1,3 @@
-.AppLink {
-}
-
 .primary {
   color: var(--text-redesigned);
 
@@ -11,6 +8,7 @@
 
 .red {
   color: var(--cancel-redesigned);
+
   &:hover {
     opacity: 0.8;
   }

@@ -1,8 +1,9 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { ArticleView } from '../../model/consts/consts';
-import { Article } from '../../model/types/article';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleListItem } from './ArticleListItem';
+import { Article } from '../../model/types/article';
 
 export default {
   title: 'entities/Article/ArticleListItem',
@@ -18,17 +19,18 @@ const Template: ComponentStory<typeof ArticleListItem> = (args) => (
 
 const article = {
   id: '1',
-  title: 'Javascript news fadfdsafadsf asfasdfasdf aasfasf ',
+  title: 'Javascript news asfasjf asfjkask f',
   subtitle: 'Что нового в JS за 2022 год?',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
   user: {
     id: '1',
-    username: 'User',
-    avatar: 'https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png',
+    username: 'Ulbi tv',
+    avatar:
+      'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
   },
-  type: ['IT', 'SCIENCE', 'POLITIC', 'ECONOMIC'],
+  type: ['IT', 'SCIENCE', 'POLITICS', 'ECONOMICS'],
   blocks: [
     {
       id: '1',
@@ -91,14 +93,14 @@ const article = {
   ],
 } as Article;
 
-export const CARDS = Template.bind({});
-CARDS.args = {
-  view: ArticleView.CARDS,
+export const Big = Template.bind({});
+Big.args = {
+  view: ArticleView.LIST,
   article,
 };
 
-export const LIST = Template.bind({});
-LIST.args = {
-  view: ArticleView.LIST,
+export const Small = Template.bind({});
+Small.args = {
+  view: ArticleView.CARDS,
   article,
 };

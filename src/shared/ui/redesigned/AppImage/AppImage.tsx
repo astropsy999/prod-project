@@ -8,7 +8,7 @@ import {
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
-  fallBack?: ReactElement;
+  fallback?: ReactElement;
   errorFallBack?: ReactElement;
 }
 
@@ -29,7 +29,7 @@ export const AppImage = memo(
     className,
     src,
     alt = 'Изображение',
-    fallBack,
+    fallback,
     errorFallBack,
     ...otherProps
   }: AppImageProps) => {
@@ -48,8 +48,8 @@ export const AppImage = memo(
       };
     }, [src]);
 
-    if (isLoading && fallBack) {
-      return fallBack;
+    if (isLoading && fallback) {
+      return fallback;
     }
 
     if (hasError && errorFallBack) {
