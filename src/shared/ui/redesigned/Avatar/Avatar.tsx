@@ -19,7 +19,7 @@ export const Avatar = ({
   src,
   size = 100,
   alt,
-  margins = 20,
+  margins = 16,
 }: AvatarProps) => {
   const mods: Mods = {};
   const styles = useMemo<CSSProperties>(

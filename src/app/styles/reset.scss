@@ -1,13 +1,30 @@
-* { margin: 0;
+* {
+  margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
-li { list-style: none; }
+li {
+  list-style: none;
+}
 
 input,
 button,
 textarea,
-select { margin: 0;
-  font: inherit; }
+select {
+  margin: 0;
+  font: inherit;
+}
 
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
