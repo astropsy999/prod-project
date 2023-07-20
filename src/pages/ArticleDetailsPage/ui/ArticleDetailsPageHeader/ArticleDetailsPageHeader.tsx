@@ -9,6 +9,7 @@ import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import {
   getRouteArticles,
   getRouteArticleDetails,
+  getRouteArticleEdit,
 } from '@/shared/const/router';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 
@@ -27,9 +28,9 @@ export const ArticleDetailsPageHeader = memo(
       navigate(getRouteArticles());
     }, [navigate]);
 
-    const anEditArticle = useCallback(() => {
+    const onEditArticle = useCallback(() => {
       if (article) {
-        navigate(getRouteArticleDetails(article.id));
+        navigate(getRouteArticleEdit(article.id));
       }
     }, [article, navigate]);
 
@@ -43,7 +44,7 @@ export const ArticleDetailsPageHeader = memo(
           {t('Назад к списку')}
         </Button>
         {canEdit && (
-          <Button theme={ButtonTheme.OUTLINE} onClick={anEditArticle}>
+          <Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
             {t('Редактировать')}
           </Button>
         )}
