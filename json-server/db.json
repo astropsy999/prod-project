@@ -684,6 +684,12 @@
       "userId": "1",
       "text": "ываываывавы",
       "id": "6dtNfcM"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam inventore eligendi, facere quasi vero adipisci ipsum ea sapiente recusandae sequi nesciunt praesentium iure. Quibusdam aliquam id autem ab perferendis officiis facere illum ad quo odit ducimus eaque perspiciatis blanditiis quis minus necessitatibus doloremque at vero laborum magni, minima, et cupiditate! Mollitia aperiam, inventore soluta natus voluptate consequatur porro id quos tempore laudantium magnam culpa incidunt qui quisquam temporibus obcaecati labore dignissimos harum nemo enim excepturi. Corporis odio est numquam pariatur repudiandae adipisci, sed ullam a officia voluptatem laborum perferendis dolorem sint eum eos ipsam quo ut, dolores corrupti, minima enim.",
+      "id": "wq99cZb"
     }
   ],
   "users": [
@@ -700,7 +706,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_gdc_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": false,
         "wasArticlesPageOpened": true
@@ -852,6 +858,12 @@
       "rate": 1,
       "feedback": "",
       "id": "BBEACJ4"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 4,
+      "id": "KIYNEdS"
     }
   ],
   "profile-ratings": [

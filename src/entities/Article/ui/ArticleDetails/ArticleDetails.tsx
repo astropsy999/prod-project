@@ -1,9 +1,3 @@
-import { memo, useCallback, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import EveIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -11,15 +5,19 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { ArticleBlockType } from '../../model/consts/consts';
+import { memo, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -27,11 +25,8 @@ import {
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { ArticleBlock } from '../../model/types/article';
 import cls from './ArticleDetails.module.scss';
 import { renderArticleBlock } from './renderBlock';
-import { ToggleFeatures } from '@/shared/lib/features';
-import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -85,7 +80,14 @@ const Redesigned = () => {
   );
 };
 
-export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
+const Skeleton = toggleFeatures({
+  name: 'isAppRedesigned',
+  on: () => SkeletonRedesigned,
+  off: () => SkeletonDeprecated,
+});
+
+export const ArticleDetails = memo((props: ArticleDetailsProps) => {
+  const { className, id } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
@@ -102,24 +104,16 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   if (isLoading) {
     content = (
       <>
-        <SkeletonDeprecated
+        <Skeleton
           className={cls.avatar}
           width={200}
           height={200}
           border='50%'
         />
-        <SkeletonDeprecated className={cls.title} width={300} height={32} />
-        <SkeletonDeprecated className={cls.skeleton} width={600} height={24} />
-        <SkeletonDeprecated
-          className={cls.skeleton}
-          width='100%'
-          height={200}
-        />
-        <SkeletonDeprecated
-          className={cls.skeleton}
-          width='100%'
-          height={200}
-        />
+        <Skeleton className={cls.title} width={300} height={32} />
+        <Skeleton className={cls.skeleton} width={600} height={24} />
+        <Skeleton className={cls.skeleton} width='100%' height={200} />
+        <Skeleton className={cls.skeleton} width='100%' height={200} />
       </>
     );
   } else if (error) {
