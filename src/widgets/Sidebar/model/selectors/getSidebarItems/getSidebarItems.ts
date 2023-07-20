@@ -19,8 +19,10 @@ import {
   getRouteProfile,
   getRouteArticles,
 } from '@/shared/const/router';
+import { useSelector } from 'react-redux';
 
-export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+export const useSidebarItems = () => {
+  const userData = useSelector(getUserAuthData);
   const sidebarItemsList: SidebarItemType[] = [
     {
       path: getRouteMain(),
@@ -67,4 +69,4 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     );
   }
   return sidebarItemsList;
-});
+};

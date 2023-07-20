@@ -10,6 +10,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './app/App';
+import { ForceUpdateProvider } from './shared/lib/render/forceUpdate';
 
 const container = document.getElementById('root');
 
@@ -21,9 +22,11 @@ root.render(
   <BrowserRouter>
     <StoreProvider>
       <ErrorBoundary>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
+        <ForceUpdateProvider>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </ForceUpdateProvider>
       </ErrorBoundary>
     </StoreProvider>
   </BrowserRouter>,
