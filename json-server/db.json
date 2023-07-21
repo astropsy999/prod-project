@@ -706,10 +706,8 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
-        "isFirstVisit": true,
-        "settingsPageHasBeenOpened": false,
-        "wasArticlesPageOpened": true
+        "wasArticlesPageOpened": true,
+        "theme": "app_gdc_theme"
       },
       "avatar": "https://newhealingdimensions.com/wp-content/uploads/2019/09/AstroPsychology-Belief.jpg"
     },
@@ -725,7 +723,7 @@
         "isCounterEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": false,
         "wasArticlesPageOpened": true

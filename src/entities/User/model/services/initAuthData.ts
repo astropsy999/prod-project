@@ -8,7 +8,10 @@ import {
   setJsonSettingsMutation,
 } from '../../api/userApi';
 import { User } from '../types/user';
-import { USER_LOCALSTORAGE_KEY } from '../../../../shared/const/localstorage';
+import {
+  LOCAL_STORAGE_LAST_DESIGN_KEY,
+  USER_LOCALSTORAGE_KEY,
+} from '../../../../shared/const/localstorage';
 
 // Create an asynchronous thunk action for fetching an article by its ID
 export const initAuthData = createAsyncThunk<
@@ -27,6 +30,11 @@ export const initAuthData = createAsyncThunk<
   try {
     // Make an API request to fetch the article by its ID
     const response = await dispatch(getUserDataByidQuery(userId)).unwrap();
+
+    localStorage.setItem(
+      LOCAL_STORAGE_LAST_DESIGN_KEY,
+      response.features?.isAppRedesigned ? 'new' : 'old',
+    );
 
     if (!response.jsonSettings) {
       return rejectWithValue('');

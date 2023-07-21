@@ -13,7 +13,7 @@ export const updateFeatureFlag = createAsyncThunk<
   void,
   UpdateFeatureFlagsOptions,
   ThunkConfig<string>
->('user/saveJsonSettings', async ({ userId, newFeatures }, thunkApi) => {
+>('features/updateFeatureFlag', async ({ userId, newFeatures }, thunkApi) => {
   const { rejectWithValue, dispatch } = thunkApi;
 
   const allFeatures = { ...getAllFeatureFlags(), ...newFeatures };
@@ -26,6 +26,8 @@ export const updateFeatureFlag = createAsyncThunk<
       }),
     );
     setFeatureFlags(allFeatures);
+    window.location.reload();
+    return undefined;
   } catch (e) {
     console.log(e);
     return rejectWithValue('Ошибка обновления фичи');
