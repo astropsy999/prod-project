@@ -14,9 +14,7 @@ export function buildSelector<T, Args extends any[]>(
   selector: Selector<T, Args>,
 ): Result<T, Args> {
   // Создаем функцию хука useSelector, используя переданный селектор
-  const useSelectorHook: Hook<T, Args> = (...args: Args) => {
-    return useSelector((state: StateSchema) => selector(state, ...args));
-  };
+  const useSelectorHook: Hook<T, Args> = (...args: Args) => useSelector((state: StateSchema) => selector(state, ...args));
 
   // Возвращаем массив, содержащий функцию хука useSelector и сам селектор
   return [useSelectorHook, selector];

@@ -48,7 +48,7 @@ export const ArticleTypeTabs = memo(
     return (
       <ToggleFeatures
         feature={'isAppRedesigned'}
-        on={
+        on={(
           <Tabs
             direction='column'
             tabs={typeTabs}
@@ -56,15 +56,15 @@ export const ArticleTypeTabs = memo(
             onTabClick={onTabClick}
             className={classNames('', {}, [className])}
           />
-        }
-        off={
+        )}
+        off={(
           <TabsDeprecated
             tabs={typeTabs}
             value={value}
             onTabClick={onTabClick}
             className={classNames('', {}, [className])}
           />
-        }
+        )}
       />
     );
   },

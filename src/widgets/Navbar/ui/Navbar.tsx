@@ -17,7 +17,6 @@ import cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { HStack } from '@/shared/ui/redesigned/Stack';
-import { Card } from '@/shared/ui/redesigned/Card';
 
 interface NavbarProps {
   className?: string;
@@ -46,15 +45,15 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     return (
       <ToggleFeatures
         feature='isAppRedesigned'
-        on={
+        on={(
           <header className={classNames(mainClass)}>
             <HStack>
               <NotificationButton />
               <AvatarDropdown />
             </HStack>
           </header>
-        }
-        off={
+        )}
+        off={(
           <header className={classNames(mainClass)}>
             <Text
               theme={TextTheme.INVERTED}
@@ -77,7 +76,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
               <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             )}
           </header>
-        }
+        )}
       />
     );
   }
@@ -85,12 +84,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     <header className={classNames(mainClass)}>
       <ToggleFeatures
         feature={'isAppRedesigned'}
-        on={
+        on={(
           <Button variant={'clear'} className={cls.links} onClick={onShowModal}>
             {t('Войти')}
           </Button>
-        }
-        off={
+        )}
+        off={(
           <ButtonDeprecated
             theme={ButtonTheme.OUTLINE_INVERTED}
             className={cls.links}
@@ -98,7 +97,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           >
             {t('Войти')}
           </ButtonDeprecated>
-        }
+        )}
       />
 
       <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />

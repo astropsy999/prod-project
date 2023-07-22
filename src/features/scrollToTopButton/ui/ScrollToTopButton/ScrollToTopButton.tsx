@@ -1,6 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
-import cls from './ScrollToTopButton.module.scss';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import CircleIcon from '@/shared/assets/icons/circle-up.svg';
 

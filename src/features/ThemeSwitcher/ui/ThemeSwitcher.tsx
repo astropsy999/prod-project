@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import { saveJsonSettings } from '@/entities/User';
 import ThemeIconDeprecated from '@/shared/assets/icons/theme-light.svg';
 import ThemeIcon from '@/shared/assets/icons/theme.svg';
@@ -11,7 +12,6 @@ import {
 } from '@/shared/ui/deprecated/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { Icon } from '@/shared/ui/redesigned/Icon';
-import { memo, useCallback } from 'react';
 
 interface ThemeSwitcherProps {
   className?: string;
@@ -34,7 +34,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     <ToggleFeatures
       feature={'isAppRedesigned'}
       on={<Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} />}
-      off={
+      off={(
         <ButtonDeprecated
           theme={ButtonTheme.CLEAR}
           className={classNames('', {}, [className])}
@@ -48,7 +48,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
             inverted
           />
         </ButtonDeprecated>
-      }
+      )}
     />
     // Render a button that triggers the theme toggle on click
   );

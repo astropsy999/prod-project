@@ -1,3 +1,6 @@
+import { memo, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import EveIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -15,9 +18,6 @@ import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { memo, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -70,7 +70,9 @@ const Redesigned = () => {
       <Text bold title={article?.title} size={'l'} />
       <Text text={article?.subtitle} />
       <AppImage
-        fallback={<Skeleton width={'100%'} height={'420px'} border={'16px'} />}
+        fallback={
+          <SkeletonRedesigned width={'100%'} height={'420px'} border={'16px'} />
+        }
         src={article?.img}
         className={cls.img}
       />

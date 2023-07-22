@@ -707,7 +707,7 @@
       },
       "jsonSettings": {
         "wasArticlesPageOpened": true,
-        "theme": "app_gdc_theme"
+        "theme": "app_light_theme"
       },
       "avatar": "https://newhealingdimensions.com/wp-content/uploads/2019/09/AstroPsychology-Belief.jpg"
     },
@@ -765,7 +765,7 @@
       "first": "Евгений",
       "lastname": "Стужук",
       "age": 42,
-      "currency": "USD",
+      "currency": "EUR",
       "country": "Cyprus",
       "city": "Irshansk",
       "username": "admin",

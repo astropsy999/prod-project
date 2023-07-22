@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import cls from './UiDesignSwitcher.module.scss';
 import { memo, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { getFeatureFlag, updateFeatureFlag } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -54,7 +53,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
           value={isAppRedesigned ? 'new' : 'old'}
           onChange={onChange}
           className={className}
-        ></ListBox>
+        />
       )}
     </HStack>
   );

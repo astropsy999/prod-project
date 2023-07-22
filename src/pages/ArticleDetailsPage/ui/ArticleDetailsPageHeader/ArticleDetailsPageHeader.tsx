@@ -8,7 +8,6 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import {
   getRouteArticles,
-  getRouteArticleDetails,
   getRouteArticleEdit,
 } from '@/shared/const/router';
 import { HStack } from '@/shared/ui/redesigned/Stack';

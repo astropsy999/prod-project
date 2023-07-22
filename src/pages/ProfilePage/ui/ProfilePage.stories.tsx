@@ -5,7 +5,7 @@ import { Currency } from '@/entities/Currency';
 import avatar from '@/shared/assets/tests/avatar.webp';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/TemeDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import ProfilePage from './ProfilePage';
 import { Theme } from '@/shared/const/theme';
 

@@ -76,7 +76,7 @@ export const ArticleSortSelector = memo(
     return (
       <ToggleFeatures
         feature={'isAppRedesigned'}
-        on={
+        on={(
           <div
             className={classNames(cls.ArticleSortSelectorRedesigned, {}, [
               className,
@@ -96,8 +96,8 @@ export const ArticleSortSelector = memo(
               />
             </VStack>
           </div>
-        }
-        off={
+        )}
+        off={(
           <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
             <Select
               value={sort}
@@ -113,7 +113,7 @@ export const ArticleSortSelector = memo(
               className={cls.order}
             />
           </div>
-        }
+        )}
       />
     );
   },

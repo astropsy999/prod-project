@@ -1,10 +1,10 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesFilters.module.scss';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticleSortSelector } from '@/features/articleSortSelector';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { useTranslation } from 'react-i18next';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleTypeTabs } from '@/features/articleTypeTabs';

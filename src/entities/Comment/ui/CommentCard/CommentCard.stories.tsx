@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { CommentCard } from './CommentCard';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagDecorator/FeaturesFlagDecorator';
 
 export default {
   title: 'entities/Comment/CommentCard',
@@ -13,15 +14,22 @@ export default {
 const Template: ComponentStory<typeof CommentCard> = (args) => (
   <CommentCard {...args} />
 );
-
-export const Normal = Template.bind({});
-Normal.args = {
+const normalArgs = {
   comment: {
     id: '1',
     text: 'Comment 1',
     user: { id: '1', username: 'User' },
   },
 };
+
+export const Normal = Template.bind({});
+Normal.args = normalArgs;
+
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = normalArgs;
+NormalRedesigned.decorators = [
+  FeaturesFlagsDecorator({ isAppRedesigned: true }),
+];
 
 export const Loading = Template.bind({});
 Loading.args = {

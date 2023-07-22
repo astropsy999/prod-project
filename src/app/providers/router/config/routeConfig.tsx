@@ -23,7 +23,7 @@ import {
   getRouteSettings,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
-import SettingsPage from '@/pages/SettingsPage/ui/SettingsPage/SettingsPage';
+import { SettingsPage } from '@/pages/SettingsPage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {

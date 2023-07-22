@@ -1,5 +1,5 @@
+import { useSelector } from 'react-redux';
 import { toggleFeatures } from '@/shared/lib/features';
-import { createSelector } from '@reduxjs/toolkit';
 import { getUserAuthData } from '@/entities/User';
 
 import ArticleIconDeprecated from '@/shared/assets/icons/article-20-20.svg';
@@ -19,7 +19,6 @@ import {
   getRouteProfile,
   getRouteArticles,
 } from '@/shared/const/router';
-import { useSelector } from 'react-redux';
 
 export const useSidebarItems = () => {
   const userData = useSelector(getUserAuthData);

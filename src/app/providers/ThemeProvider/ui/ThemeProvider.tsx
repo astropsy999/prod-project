@@ -1,7 +1,6 @@
 import React, { ReactNode, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
 import { Theme } from '@/shared/const/theme';
-import { useJsonSettings } from '../../../../entities/User';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 
 interface ThemeProviderProps {
@@ -9,29 +8,28 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-const fallBackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
+const fallbackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
 
 const ThemeProvider = (props: ThemeProviderProps) => {
   const { initialTheme, children } = props;
-  const { theme: defaultTheme } = useJsonSettings();
   const [isThemeInited, setThemeInited] = useState(false);
+
   const [theme, setTheme] = useState<Theme>(
-    initialTheme || fallBackTheme || Theme.LIGHT,
+    initialTheme || fallbackTheme || Theme.LIGHT,
   );
 
   useEffect(() => {
-    if (!isThemeInited && defaultTheme) {
-      setTheme(defaultTheme);
+    if (!isThemeInited && initialTheme) {
+      setTheme(initialTheme);
       setThemeInited(true);
     }
-  }, [defaultTheme, isThemeInited]);
+  }, [initialTheme, isThemeInited]);
 
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
   }, [theme]);
 
-  // Create a memoized object with theme and setTheme properties to avoid unnecessary re-renders
   const defaultProps = useMemo(
     () => ({
       theme,
@@ -40,11 +38,7 @@ const ThemeProvider = (props: ThemeProviderProps) => {
     [theme],
   );
 
-  // Set the theme class on the body element
-  document.body.className = theme;
-
   return (
-    // Provide the theme context with the default props value to its children
     <ThemeContext.Provider value={defaultProps}>
       {children}
     </ThemeContext.Provider>

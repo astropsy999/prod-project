@@ -1,22 +1,21 @@
 import { getUserInited } from '@/entities/User';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { Suspense, useEffect } from 'react';
+import { Suspense, memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { initAuthData } from '../entities/User/model/services/initAuthData';
 import { useAppDispatch } from '../shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { AppRouter } from './providers/router';
 import { PageLoader } from '../widgets/PageLoader';
-import { ToggleFeatures } from '@/shared/lib/features';
-import { MainLayout } from '@/shared/layouts/MainLayout';
-import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
-import { ScrollToTopButton } from '@/features/scrollToTopButton';
-import { ScrollToolbar } from '@/widgets/ScrollToolbar';
 import { useAppToolbar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
+import { AppRouter } from './providers/router';
 
-function App() {
+const App = memo(function App() {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
@@ -70,6 +69,6 @@ function App() {
       }
     />
   );
-}
+});
 
-export default App;
+export default withTheme(App);

@@ -46,7 +46,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   return (
     <ToggleFeatures
       feature='isAppRedesigned'
-      on={
+      on={(
         <HStack
           wrap='wrap'
           gap='16'
@@ -64,8 +64,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
           ))}
           {isLoading && getSkeletons(view)}
         </HStack>
-      }
-      off={
+      )}
+      off={(
         <div
           className={classNames(cls.ArticleList, {}, [className, cls[view]])}
           data-testid='ArticleList'
@@ -81,7 +81,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
           ))}
           {isLoading && getSkeletons(view)}
         </div>
-      }
+      )}
     />
   );
 });

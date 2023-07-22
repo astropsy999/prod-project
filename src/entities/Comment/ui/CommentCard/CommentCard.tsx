@@ -2,8 +2,7 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink as ApplinkDeprecated } from '@/shared/ui/deprecated/AppLink';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
-import { Skeleton as SkeletonRedesigned } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonDeprecated, Skeleton as SkeletonRedesigned } from '@/shared/ui/deprecated/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -51,7 +50,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
   return (
     <ToggleFeatures
       feature={'isAppRedesigned'}
-      on={
+      on={(
         <Card padding={'24'} max border='partial'>
           <VStack
             data-testid='CommentCard.Content'
@@ -70,8 +69,8 @@ export const CommentCard = memo((props: CommentCardProps) => {
             <Text text={comment?.text} />
           </VStack>
         </Card>
-      }
-      off={
+      )}
+      off={(
         <VStack
           data-testid='CommentCard.Content'
           gap={'8'}
@@ -92,7 +91,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
           </ApplinkDeprecated>
           <Text className={cls.text} text={comment?.text} />
         </VStack>
-      }
+      )}
     />
   );
 });

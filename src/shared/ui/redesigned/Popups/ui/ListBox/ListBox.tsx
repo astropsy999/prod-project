@@ -41,9 +41,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
 
   const optionsClasses = [MapDirectionClass[direction], popupsCls.menu];
 
-  const selectedItem = useMemo(() => {
-    return items?.find((item) => item.value === value);
-  }, [items, value]);
+  const selectedItem = useMemo(() => items?.find((item) => item.value === value), [items, value]);
 
   return (
     <HStack gap={'4'}>

@@ -58,28 +58,28 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
   return (
     <ToggleFeatures
       feature={'isAppRedesigned'}
-      on={
+      on={(
         <Dropdown
           className={classNames(cls.AvatarDropdown, {}, [className])}
           direction='bottom-left'
           items={items}
           trigger={<Avatar size={40} src={authData.avatar} />}
         />
-      }
-      off={
+      )}
+      off={(
         <DropdownDeprecated
           className={classNames(cls.AvatarDropdown, {}, [className])}
           direction='bottom-left'
           items={items}
-          trigger={
+          trigger={(
             <AvatarDeprecated
               fallBackInverted
               size={30}
               src={authData.avatar}
             />
-          }
+          )}
         />
-      }
+      )}
     />
   );
 });

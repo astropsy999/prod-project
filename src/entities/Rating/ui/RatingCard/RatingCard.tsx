@@ -68,33 +68,31 @@ export const RatingCard = memo(
     }, [onCancel, starsCount]);
 
     const modalContent = (
-      <>
-        <ToggleFeatures
-          feature={'isAppRedesigned'}
-          on={
-            <>
-              <Text title={feedbackTitle} />
-              <Input
-                data-testid='RatingCard.Input'
-                value={feedback}
-                onChange={setFeedback}
-                placeholder={t('Ваш отзыв')}
-              />
-            </>
-          }
-          off={
-            <>
-              <TextDeprecated title={feedbackTitle} />
-              <InputDeprecated
-                data-testid='RatingCard.Input'
-                value={feedback}
-                onChange={setFeedback}
-                placeholder={t('Ваш отзыв')}
-              />
-            </>
-          }
-        />
-      </>
+      <ToggleFeatures
+        feature={'isAppRedesigned'}
+        on={(
+          <>
+            <Text title={feedbackTitle} />
+            <Input
+              data-testid='RatingCard.Input'
+              value={feedback}
+              onChange={setFeedback}
+              placeholder={t('Ваш отзыв')}
+            />
+          </>
+        )}
+        off={(
+          <>
+            <TextDeprecated title={feedbackTitle} />
+            <InputDeprecated
+              data-testid='RatingCard.Input'
+              value={feedback}
+              onChange={setFeedback}
+              placeholder={t('Ваш отзыв')}
+            />
+          </>
+        )}
+      />
     );
 
     const content = (
@@ -104,11 +102,11 @@ export const RatingCard = memo(
           <ToggleFeatures
             feature={'isAppRedesigned'}
             on={<Text title={starsCount ? t('Вы оценили статью') : title} />}
-            off={
+            off={(
               <TextDeprecated
                 title={starsCount ? t('Вы оценили статью') : title}
               />
-            }
+            )}
           />
           <StarRating
             selectedStars={starsCount}
@@ -122,7 +120,7 @@ export const RatingCard = memo(
               {modalContent}
               <ToggleFeatures
                 feature={'isAppRedesigned'}
-                on={
+                on={(
                   <HStack gap={'16'} justify={'end'}>
                     <Button
                       data-testid='RatingCard.Close'
@@ -137,8 +135,8 @@ export const RatingCard = memo(
                       {t('Отправить')}
                     </ButtonDeprecated>
                   </HStack>
-                }
-                off={
+                )}
+                off={(
                   <HStack gap={'16'} justify={'end'}>
                     <ButtonDeprecated
                       data-testid='RatingCard.Close'
@@ -154,7 +152,7 @@ export const RatingCard = memo(
                       {t('Отправить')}
                     </ButtonDeprecated>
                   </HStack>
-                }
+                )}
               />
             </VStack>
           </Modal>
@@ -165,12 +163,12 @@ export const RatingCard = memo(
               {modalContent}
               <ToggleFeatures
                 feature={'isAppRedesigned'}
-                on={
+                on={(
                   <Button onClick={acceptHandler} size={'l'} fullWidth>
                     {t('Отправить')}
                   </Button>
-                }
-                off={
+                )}
+                off={(
                   <ButtonDeprecated
                     onClick={acceptHandler}
                     size={ButtonSize.L}
@@ -178,7 +176,7 @@ export const RatingCard = memo(
                   >
                     {t('Отправить')}
                   </ButtonDeprecated>
-                }
+                )}
               />
             </VStack>
           </DrawerDeprecated>
@@ -189,16 +187,16 @@ export const RatingCard = memo(
     return (
       <ToggleFeatures
         feature={'isAppRedesigned'}
-        on={
+        on={(
           <Card className={className} max data-testid='RatingCard'>
             {content}
           </Card>
-        }
-        off={
+        )}
+        off={(
           <CardDeprecated className={className} max data-testid='RatingCard'>
             {content}
           </CardDeprecated>
-        }
+        )}
       />
     );
   },

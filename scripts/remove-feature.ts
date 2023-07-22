@@ -91,12 +91,8 @@ const replaceToggleFunction = (node: Node) => {
 };
 
 // Function to get the JSX attribute node by name
-const getAttributeNodeByName = (
-  jsxAttributes: JsxAttribute[],
-  name: string,
-) => {
-  return jsxAttributes.find((node) => node.getName() === name);
-};
+const getAttributeNodeByName = (jsxAttributes: JsxAttribute[], name: string) =>
+  jsxAttributes.find((node) => node.getName() === name);
 
 // Function to get the replaced component value from JSX attribute
 const getReplacedComponent = (attribute?: JsxAttribute) => {
@@ -140,6 +136,7 @@ const replaceComponent = (node: Node) => {
 
 // Process each source file in the project
 files.forEach((sourceFile) => {
+  // eslint-disable-next-line consistent-return
   sourceFile.forEachDescendant((node) => {
     if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
       return replaceToggleFunction(node);

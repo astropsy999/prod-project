@@ -16,11 +16,8 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import cls from './ArticleDetailsPage.module.scss';
 import {
   ToggleFeatures,
-  getFeatureFlag,
-  toggleFeatures,
 } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/deprecated/Card';
-import { off } from 'process';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
@@ -53,9 +50,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <ToggleFeatures
         feature={'isAppRedesigned'}
-        on={
+        on={(
           <StickyContentLayout
-            content={
+            content={(
               <Page
                 className={classNames(cls.ArticleDetailsPage, {}, [className])}
               >
@@ -70,11 +67,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                   <ArticleDetailsComments id={id} />
                 </VStack>
               </Page>
-            }
+            )}
             right={<AdditionalInfoContainer />}
           />
-        }
-        off={
+        )}
+        off={(
           <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <VStack gap={'16'} max>
               <ArticleDetailsPageHeader />
@@ -88,7 +85,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
               <ArticleDetailsComments id={id} />
             </VStack>
           </Page>
-        }
+        )}
       />
     </DynamicModuleLoader>
   );

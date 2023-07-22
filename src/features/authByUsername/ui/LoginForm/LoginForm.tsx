@@ -69,7 +69,7 @@ const LoginForm = memo((props: LoginFormProps) => {
     <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
       <ToggleFeatures
         feature={'isAppRedesigned'}
-        on={
+        on={(
           <div className={classNames(cls.LoginForm, {}, [className])}>
             <Text title={t('Авторизоваться')} variant='primary' />
             {error && <Text text={t('Помилка')} variant={'error'} />}
@@ -97,8 +97,8 @@ const LoginForm = memo((props: LoginFormProps) => {
               {t('Войти')}
             </Button>
           </div>
-        }
-        off={
+        )}
+        off={(
           <div className={classNames(cls.LoginForm, {}, [className])}>
             <TextDeprecated
               title={t('Авторизоваться')}
@@ -134,7 +134,7 @@ const LoginForm = memo((props: LoginFormProps) => {
               {t('Войти')}
             </ButtonDeprecated>
           </div>
-        }
+        )}
       />
     </DynamicModuleLoader>
   );

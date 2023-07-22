@@ -12,12 +12,10 @@ export interface ArticleListItemProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={<ArticleListItemRedesigned {...props} />}
-            off={<ArticleListItemDeprecated {...props} />}
-        />
-    );
-});
+export const ArticleListItem = memo((props: ArticleListItemProps) => (
+  <ToggleFeatures
+    feature="isAppRedesigned"
+    on={<ArticleListItemRedesigned {...props} />}
+    off={<ArticleListItemDeprecated {...props} />}
+  />
+));

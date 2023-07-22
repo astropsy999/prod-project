@@ -1,9 +1,7 @@
-// eslint-disable-next-line paths-checking-plugin-ys/layers-import-ys
-import '@/app/styles/index.scss';
 import { Story } from '@storybook/react';
-import { Theme } from '@/shared/const/theme';
-// eslint-disable-next-line paths-checking-plugin-ys/layers-import-ys
+// eslint-disable-next-line ulbi-tv-plugin/layer-imports
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 
 export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) =>
   (

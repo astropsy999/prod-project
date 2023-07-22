@@ -1,3 +1,4 @@
+import { memo, useMemo, useState } from 'react';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
@@ -7,7 +8,6 @@ import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { memo, useMemo, useState } from 'react';
 import { useSidebarItems } from '../../model/selectors/getSidebarItems/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
@@ -35,7 +35,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   return (
     <ToggleFeatures
       feature='isAppRedesigned'
-      on={
+      on={(
         <aside
           data-testid='sidebar'
           className={classNames(
@@ -60,8 +60,8 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             <LangSwitcher short={collapsed} className={cls.lang} />
           </div>
         </aside>
-      }
-      off={
+      )}
+      off={(
         <aside
           data-testid='sidebar'
           className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
@@ -86,7 +86,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             <LangSwitcher short={collapsed} className={cls.lang} />
           </div>
         </aside>
-      }
+      )}
     />
   );
 });

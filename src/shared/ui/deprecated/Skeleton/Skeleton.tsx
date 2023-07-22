@@ -18,7 +18,7 @@ export const Skeleton = memo(
     const styles: CSSProperties = {
       width,
       height,
-      border: border,
+      border,
     };
     return (
       <div
