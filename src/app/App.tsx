@@ -1,3 +1,5 @@
+import { Suspense, memo, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { getUserInited } from '@/entities/User';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@/shared/layouts/MainLayout';
@@ -6,8 +8,6 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { Suspense, memo, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { initAuthData } from '../entities/User/model/services/initAuthData';
 import { useAppDispatch } from '../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageLoader } from '../widgets/PageLoader';
@@ -15,7 +15,7 @@ import { useAppToolbar } from './lib/useAppToolbar';
 import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 import { AppRouter } from './providers/router';
 
-const App = memo(function App() {
+const App = memo(() => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
@@ -31,11 +31,11 @@ const App = memo(function App() {
     return (
       <ToggleFeatures
         feature={'isAppRedesigned'}
-        on={
+        on={(
           <div id='app' className={classNames('app', {}, [theme])}>
             <AppLoaderLayout />
           </div>
-        }
+        )}
         off={<PageLoader />}
       />
     );
@@ -44,7 +44,7 @@ const App = memo(function App() {
   return (
     <ToggleFeatures
       feature='isAppRedesigned'
-      off={
+      off={(
         <div id='app' className={classNames('app', {}, [theme])}>
           <Suspense fallback=''>
             <Navbar />
@@ -54,8 +54,8 @@ const App = memo(function App() {
             </div>
           </Suspense>
         </div>
-      }
-      on={
+      )}
+      on={(
         <div id='app' className={classNames('app_redesigned', {}, [theme])}>
           <Suspense fallback=''>
             <MainLayout
@@ -66,7 +66,7 @@ const App = memo(function App() {
             />
           </Suspense>
         </div>
-      }
+      )}
     />
   );
 });

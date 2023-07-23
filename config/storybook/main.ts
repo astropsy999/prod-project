@@ -31,6 +31,7 @@ export default {
     };
 
     config!.resolve!.modules!.push(paths.src);
+
     config!.resolve!.extensions!.push('.ts', '.tsx');
     config!.resolve!.alias = {
       ...config!.resolve!.alias,
@@ -61,6 +62,7 @@ export default {
         __PROJECT__: JSON.stringify('storybook'),
       }),
     );
+    console.log('config: ', config);
     // Return the altered config
     return config;
   },
