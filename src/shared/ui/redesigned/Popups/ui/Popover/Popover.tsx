@@ -2,7 +2,7 @@ import { Popover as HPopover } from '@headlessui/react';
 import { memo, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import { MapDirectionClass } from '../../styles/consts';
+import { mapDirectionClass } from '../../styles/consts';
 import cls from './Popover.module.scss';
 import popupsCls from '../../styles/popups.module.scss';
 
@@ -20,7 +20,7 @@ export const Popover = memo(
     direction = 'bottom-left',
     children,
   }: PopoverProps) => {
-    const menuClasses = [MapDirectionClass[direction], popupsCls.menu];
+    const menuClasses = [mapDirectionClass[direction], popupsCls.menu];
 
     return (
       <HPopover

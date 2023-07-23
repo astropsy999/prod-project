@@ -49,7 +49,7 @@ export const ArticlesViewSelector = memo(
     return (
       <ToggleFeatures
         feature={'isAppRedesigned'}
-        on={(
+        on={
           <Card
             className={classNames(cls.ArticlesViewSelectorRedesigned, {}, [
               className,
@@ -60,6 +60,7 @@ export const ArticlesViewSelector = memo(
               {viewTypes.map((viewType) => (
                 <Icon
                   clickable
+                  key={viewType.view}
                   onClick={onClick(viewType.view)}
                   Svg={viewType.icon}
                   className={classNames('', {
@@ -69,8 +70,8 @@ export const ArticlesViewSelector = memo(
               ))}
             </HStack>
           </Card>
-        )}
-        off={(
+        }
+        off={
           <div
             className={classNames(cls.ArticlesViewSelector, {}, [className])}
           >
@@ -91,7 +92,7 @@ export const ArticlesViewSelector = memo(
               </ButtonDeprecated>
             ))}
           </div>
-        )}
+        }
       />
     );
   },

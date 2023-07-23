@@ -37,7 +37,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
   const data = useArticleItemById('2');
-  console.log('data: ', data);
 
   // Callback function onLoadNextPart, called when loading the next part of articles
   const onLoadNextPart = useCallback(() => {
@@ -52,11 +51,11 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const content = (
     <ToggleFeatures
       feature={'isAppRedesigned'}
-      on={(
+      on={
         <StickyContentLayout
           left={<ViewSelectorContainer />}
           right={<FiltersContainer />}
-          content={(
+          content={
             <Page
               data-testid={'ArticlesPage'}
               onScrollEnd={onLoadNextPart}
@@ -67,10 +66,10 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
               <ArticleInfiniteList className={cls.list} />
               <ArticlePageGreeting />
             </Page>
-          )}
+          }
         />
-      )}
-      off={(
+      }
+      off={
         <Page
           data-testid={'ArticlesPage'}
           onScrollEnd={onLoadNextPart}
@@ -80,7 +79,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
           <ArticleInfiniteList className={cls.list} />
           <ArticlePageGreeting />
         </Page>
-      )}
+      }
     />
   );
 
