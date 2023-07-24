@@ -1,21 +1,21 @@
 import { FeatureFlags } from '@/shared/types/featureFlags';
 import { getFeatureFlag } from './setGetFeatures';
 
-// Interface for the options of the toggleFeatures function
+// Интерфейс для параметров функции toggleFeatures
 interface ToggleFeaturesOptions<T> {
-  name: keyof FeatureFlags; // Name of the feature flag
-  on: () => T; // Function to be called when the feature flag is enabled
-  off: () => T; // Function to be called when the feature flag is disabled
+  name: keyof FeatureFlags; // Название фича-флага
+  on: () => T; // Функция, которая будет вызвана, когда фича-флаг включен
+  off: () => T; // Функция, которая будет вызвана, когда фича-флаг выключен
 }
 
-// Function that toggles features based on the provided options
+// Функция, которая включает/выключает функциональность на основе переданных параметров
 export function toggleFeatures<T>({
   name,
   on,
   off,
 }: ToggleFeaturesOptions<T>): T {
   if (getFeatureFlag(name)) {
-    return on(); // Call the on() function when the feature flag is enabled
+    return on(); // Вызываем функцию on(), когда фича-флаг включен
   }
-  return off(); // Call the off() function when the feature flag is disabled
+  return off(); // Вызываем функцию off(), когда фича-флаг выключен
 }
