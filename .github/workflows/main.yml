@@ -39,106 +39,108 @@
 
 # Название workflow - "linting, testing, building"
 # Заданные события, при которых будет запущена workflow - push и pull_request на ветке master
-name: linting, testing, building
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+# name: linting, testing, building
+# on:
+#   push:
+#     branches: [master]
+#   pull_request:
+#     branches: [master]
 
-# Определение разрешений для доступа к репозиторию
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+# # Определение разрешений для доступа к репозиторию
+# permissions:
+#   contents: write
+#   pages: write
+#   id-token: write
 
-# Определение concurrency group и отмена уже запущенных процессов при запуске нового
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
+# # Определение concurrency group и отмена уже запущенных процессов при запуске нового
+# concurrency:
+#   group: 'pages'
+#   cancel-in-progress: true
 
 # Определение двух jobs - "build-and-ui-testing" и "checks"
-jobs:
-  build-and-ui-testing:
-    # Определение ОС для запуска - ubuntu-latest
-    runs-on: ubuntu-latest
-    # Определение concurrency для job, используется переменная github.ref для уникального идентификатора
-    concurrency: ci-${{ github.ref }}
-    # Определение environment для job - github-pages с указанием url, который используется для развертывания GitHub Pages
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+# jobs:
+#   build-and-ui-testing:
+#     # Определение ОС для запуска - ubuntu-latest
+#     runs-on: ubuntu-latest
+#     if: false
 
-    # Определение matrix для разных версий Node.js, в данном случае - 17.x
-    strategy:
-      matrix:
-        node-version: [17.x]
+#     # Определение concurrency для job, используется переменная github.ref для уникального идентификатора
+#     concurrency: ci-${{ github.ref }}
+#     # Определение environment для job - github-pages с указанием url, который используется для развертывания GitHub Pages
+#     environment:
+#       name: github-pages
+#       url: ${{ steps.deployment.outputs.page_url }}
 
-    # Шаги job "build-and-ui-testing"
-    steps:
-      - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: install modules
-        run: npm ci --force
-        if: false
-      - name: build production project
-        run: npm run build:prod
-        # if: always()
-        if: false
-      - name: build storybook
-        run: npm run storybook:build
-        # if: always()
-        if: false
-      - name: screenshot testing
-        run: npm run test:ui:ci
-        # if: always()
-        if: false
-      - name: unit testing
-        # if: always()
-        if: false
-        run: npm run test:unit
-      - name: Generate HTML report
-        run: npm run test:ui:report
-        # if: always()
-        if: false
-      - name: move loki
-        run: mv .loki reports/
-        # if: always()
-        if: false
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-        # if: always()
-        if: false
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        # if: always()
-        if: false
-        with:
-          path: 'reports'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        # if: always()
-        if: false
-        uses: actions/deploy-pages@v1
+#     # Определение matrix для разных версий Node.js, в данном случае - 17.x
+#     strategy:
+#       matrix:
+#         node-version: [17.x]
 
-  checks:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [17.x]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: install modules
-        run: npm ci --force
-      - name: linting typescript
-        run: npm run lint:ts
-        if: always()
-      - name: linting css
-        run: npm run lint:scss
+#     # Шаги job "build-and-ui-testing"
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Staring Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - name: install modules
+#         run: npm ci --force
+#         if: false
+#       - name: build production project
+#         run: npm run build:prod
+#         # if: always()
+#         if: false
+#       - name: build storybook
+#         run: npm run storybook:build
+#         # if: always()
+#         if: false
+#       - name: screenshot testing
+#         run: npm run test:ui:ci
+#         # if: always()
+#         if: false
+#       - name: unit testing
+#         # if: always()
+#         if: false
+#         run: npm run test:unit
+#       - name: Generate HTML report
+#         run: npm run test:ui:report
+#         # if: always()
+#         if: false
+#       - name: move loki
+#         run: mv .loki reports/
+#         # if: always()
+#         if: false
+#       - name: Setup Pages
+#         uses: actions/configure-pages@v2
+#         # if: always()
+#         if: false
+#       - name: Upload artifact
+#         uses: actions/upload-pages-artifact@v1
+#         # if: always()
+#         if: false
+#         with:
+#           path: 'reports'
+#       - name: Deploy to GitHub Pages
+#         id: deployment
+#         # if: always()
+#         if: false
+#         uses: actions/deploy-pages@v1
+
+#   checks:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [17.x]
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Staring Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - name: install modules
+#         run: npm ci --force
+#       - name: linting typescript
+#         run: npm run lint:ts
+#         if: always()
+#       - name: linting css
+#         run: npm run lint:scss
