@@ -1,13 +1,29 @@
 ## Сущность статьи
 
-Описание:
-описываем сущность.
+Сущность статьи используется
 
 #### Public api
 
+```[Public api](index.ts)
+export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
+
+export type { Article } from './model/types/article';
+
+export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+
+export { ArticleList } from './ui/ArticleList/ArticleList';
+export { getArticleDetailsData } from './model/selectors/articleDetails';
+export {
+  ArticleView,
+  ArticleType,
+  ArticleSortField,
+  ArticleBlockType,
+} from './model/consts/consts';
+```
+
 - Components
 
-`ArticleDetails` - компонент с информацией о статье
+[ArticleDetails](/src/entities/Article/ui/ArticleDetails/) - компонент с информацией о статье
 
 `ArticleList` - Компонент со списком статей
 
@@ -24,3 +40,7 @@
 - selectors
 
 `getArticleDetailsData` - Селектор для получения информации о текущей открытой статье
+
+```
+
+```
