@@ -3,26 +3,26 @@ import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById'
 import { Article } from '../types/article';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
-// Define initial state for article details
+// Определение начального состояния для деталей статьи
 const initialState: ArticleDetailsSchema = {
   isLoading: false,
   error: undefined,
   data: undefined,
 };
 
-// Create articleDetailsSlice using createSlice from Redux Toolkit
+// Создание articleDetailsSlice с помощью createSlice из Redux Toolkit
 export const articleDetailsSlice = createSlice({
-  name: 'articleDetails', // Slice name
-  initialState, // Initial state
-  reducers: {}, // No additional reducers defined
+  name: 'articleDetails', // Имя среза
+  initialState, // Начальное состояние
+  reducers: {}, // Отсутствие дополнительных редюсеров
   extraReducers: (builder) => {
     builder
-      // Handle pending action for fetching article by ID
+      // Обработка действия pending для запроса статьи по идентификатору
       .addCase(fetchArticleById.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
       })
-      // Handle fulfilled action for fetching article by ID
+      // Обработка действия fulfilled для успешного запроса статьи по идентификатору
       .addCase(
         fetchArticleById.fulfilled,
         (state, action: PayloadAction<Article>) => {
@@ -30,7 +30,7 @@ export const articleDetailsSlice = createSlice({
           state.data = action.payload;
         },
       )
-      // Handle rejected action for fetching article by ID
+      // Обработка действия rejected для неудачного запроса статьи по идентификатору
       .addCase(fetchArticleById.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
@@ -38,6 +38,6 @@ export const articleDetailsSlice = createSlice({
   },
 });
 
-// Export action creators and reducer from articleDetailsSlice
+// Экспорт созданных action creators и редюсера из articleDetailsSlice
 export const { actions: articleDetailsActions } = articleDetailsSlice;
 export const { reducer: articleDetailsReducer } = articleDetailsSlice;

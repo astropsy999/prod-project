@@ -1,3 +1,4 @@
+// Импорт необходимых зависимостей из библиотек и модулей приложения
 import { memo, useMemo, useState } from 'react';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
@@ -12,18 +13,26 @@ import { useSidebarItems } from '../../model/selectors/getSidebarItems/getSideba
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 
+// Определение интерфейса SidebarProps с возможным свойством className
 interface SidebarProps {
   className?: string;
 }
 
+// Определение компонента Sidebar с использованием memoization для оптимизации перерисовок
 export const Sidebar = memo(({ className }: SidebarProps) => {
+  // Использование useState для управления состоянием коллапса (свернутости) боковой панели
   const [collapsed, setCollapsed] = useState(false);
+
+  // Получение списка элементов боковой панели с помощью кастомного хука useSidebarItems
   const sidebarItemsList = useSidebarItems();
 
+  // Обработчик переключения состояния коллапса боковой панели
   const onToggle = () => {
     setCollapsed((prev) => !prev);
   };
 
+  // Использование useMemo для мемоизации списка элементов боковой панели,
+  // чтобы избежать ненужных перерисовок при изменении состояния коллапса или списка элементов
   const itemsList = useMemo(
     () =>
       sidebarItemsList.map((item) => (
@@ -32,10 +41,12 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     [collapsed, sidebarItemsList],
   );
 
+  // Возвращение JSX разметки с использованием ToggleFeatures,
+  // чтобы показывать разные версии боковой панели в зависимости от определенной фичи 'isAppRedesigned'
   return (
     <ToggleFeatures
       feature='isAppRedesigned'
-      on={(
+      on={
         <aside
           data-testid='sidebar'
           className={classNames(
@@ -60,8 +71,8 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             <LangSwitcher short={collapsed} className={cls.lang} />
           </div>
         </aside>
-      )}
-      off={(
+      }
+      off={
         <aside
           data-testid='sidebar'
           className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
@@ -86,7 +97,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             <LangSwitcher short={collapsed} className={cls.lang} />
           </div>
         </aside>
-      )}
+      }
     />
   );
 });

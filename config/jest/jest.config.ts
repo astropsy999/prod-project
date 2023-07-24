@@ -1,5 +1,5 @@
 /*
- * For a detailed explanation regarding each configuration property and type check, visit:
+ * Подробное объяснение каждого параметра конфигурации и проверка типов:
  * https://jestjs.io/docs/configuration
  */
 
@@ -12,34 +12,34 @@ export default {
     __PROJECT__: 'jest',
   },
 
-  // All imported modules in your tests should be mocked automatically
+  // Все импортированные модули ваших тестов должны быть автоматически замоканы
   // automock: false,
 
-  // Stop running tests after `n` failures
+  // Прекратить выполнение тестов после `n` неудачных попыток
   // bail: 0,
 
-  // The directory where Jest should store its cached dependency information
+  // Каталог, в котором Jest должен хранить информацию о кэше зависимостей
   // cacheDirectory: "C:\\Users\\Astropsych\\AppData\\Local\\Temp\\jest",
 
   clearMocks: true,
   testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
 
-  // Indicates whether the coverage information should be collected while executing the test
+  // Указывает, следует ли собирать информацию о покрытии кода во время выполнения тестов
   // collectCoverage: false,
 
-  // An array of glob patterns indicating a set of files for which coverage information should be collected
+  // Массив шаблонов глобин, указывающих набор файлов, для которых следует собирать информацию о покрытии кода
   // collectCoverageFrom: undefined,
 
-  // The directory where Jest should output its coverage files
+  // Каталог, в котором Jest должен сохранять файлы с информацией о покрытии кода
   // coverageDirectory: undefined,
 
-  // An array of regexp pattern strings used to skip coverage collection
+  // Массив регулярных выражений, используемых для пропуска сбора информации о покрытии кода
 
-  // Indicates which provider should be used to instrument code for coverage
+  // Указывает, какой инструментарий должен использоваться для инструментирования кода для сбора информации о покрытии
   // coverageProvider: "babel",
 
-  // A list of reporter names that Jest uses when writing coverage reports
+  // Список имен репортеров, которые использует Jest для записи отчетов о покрытии кода
   // coverageReporters: [
   //   "json",
   //   "text",
@@ -47,37 +47,38 @@ export default {
   //   "clover"
   // ],
 
-  // An object that configures minimum threshold enforcement for coverage results
+  // Объект, который настраивает минимальные пороги для результатов покрытия кода
   // coverageThreshold: undefined,
 
-  // A path to a custom dependency extractor
+  // Путь к пользовательскому извлекателю зависимостей
   // dependencyExtractor: undefined,
 
-  // Make calling deprecated APIs throw helpful error messages
+  // При вызове устаревших API генерировать полезные сообщения об ошибках
   // errorOnDeprecated: false,
 
-  // Force coverage collection from ignored files using an array of glob patterns
+  // Принудительно собирать информацию о покрытии кода из игнорируемых файлов с использованием массива шаблонов глобин
   // forceCoverageMatch: [],
 
-  // A path to a module which exports an async function that is triggered once before all test suites
+  // Путь к модулю, который экспортирует асинхронную функцию, которая запускается перед всеми тестовыми наборами
   // globalSetup: undefined,
 
-  // A path to a module which exports an async function that is triggered once after all test suites
+  // Путь к модулю, который экспортирует асинхронную функцию, которая запускается после всех тестовых наборов
   // globalTeardown: undefined,
 
-  // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
+  // Максимальное количество рабочих процессов, используемых для выполнения тестов.
+  // Может быть указано в процентах или числе. Например, maxWorkers: "50%" будет использовать 50% от количества вашего процессора + 1 в качестве максимального числа рабочих процессов. maxWorkers: 2 будет использовать максимум 2 рабочих процесса.
   // maxWorkers: "50%",
 
-  // An array of directory names to be searched recursively up from the requiring module's location
+  // Массив имен директорий, которые должны искаться рекурсивно относительно директории модуля, который их вызывает
   moduleDirectories: ['node_modules'],
 
   modulePaths: ['<rootDir>src'],
 
-  // An array of file extensions your modules use
+  // Массив расширений файлов, которые используются в ваших модулях
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
-  // The glob patterns Jest uses to detect test files
+  // Шаблоны глобин, используемые Jest для обнаружения файлов с тестами
   testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
-  // The root directory that Jest should scan for tests and modules within
+  // Корневая директория, которую Jest должен сканировать на предмет тестов и модулей
   rootDir: '../../',
   setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
   moduleNameMapper: {
@@ -99,103 +100,103 @@ export default {
     ],
   ],
 
-  // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
+  // Карта из регулярных выражений в имена модулей или массивов имен модулей, которые позволяют подменить ресурсы с помощью одного модуля
   // moduleNameMapper: {},
 
-  // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
+  // Массив регулярных выражений, сопоставляемых со всеми путями модулей перед тем, как они станут "видимыми" для загрузчика модулей
   // modulePathIgnorePatterns: [],
 
-  // Activates notifications for test results
+  // Включает уведомления о результатах тестов
   // notify: false,
 
-  // An enum that specifies notification mode. Requires { notify: true }
+  // Перечисление, указывающее режим уведомлений. Требует { notify: true }
   // notifyMode: "failure-change",
 
-  // A preset that is used as a base for Jest's configuration
+  // Пресет, используемый как базовая конфигурация для Jest
   // preset: undefined,
 
-  // Run tests from one or more projects
+  // Запускать тесты из одного или нескольких проектов
   // projects: undefined,
 
-  // Use this configuration option to add custom reporters to Jest
+  // Используйте эту опцию конфигурации, чтобы добавить пользовательские репортеры в Jest
   // reporters: undefined,
 
-  // Automatically reset mock state before every test
+  // Автоматически сбрасывать состояние мока перед каждым тестом
   // resetMocks: false,
 
-  // Reset the module registry before running each individual test
+  // Сбросить реестр модулей перед выполнением каждого отдельного теста
   // resetModules: false,
 
-  // A path to a custom resolver
+  // Путь к пользовательскому разрешителю путей
   // resolver: undefined,
 
-  // Automatically restore mock state and implementation before every test
+  // Автоматически восстанавливать состояние мока и реализацию перед каждым тестом
   // restoreMocks: false,
 
-  // A list of paths to directories that Jest should use to search for files in
+  // Список путей к директориям, в которых Jest должен искать файлы
   // roots: [
   //   "<rootDir>"
   // ],
 
-  // Allows you to use a custom runner instead of Jest's default test runner
+  // Позволяет использовать пользовательский средство запуска вместо стандартного средства запуска тестов Jest
   // runner: "jest-runner",
 
-  // The paths to modules that run some code to configure or set up the testing environment before each test
+  // Пути к модулям, которые запускают некоторый код для настройки или установки среды тестирования перед каждым тестом
   // setupFiles: [],
 
-  // A list of paths to modules that run some code to configure or set up the testing framework before each test
+  // Список путей к модулям, которые запускают некоторый код для настройки или установки тестового фреймворка перед каждым тестом
   // setupFilesAfterEnv: [],
 
-  // The number of seconds after which a test is considered as slow and reported as such in the results.
+  // Количество секунд, после которых тест считается медленным и выводится таковым в результатах.
   // slowTestThreshold: 5,
 
-  // A list of paths to snapshot serializer modules Jest should use for snapshot testing
+  // Список путей к модулям сериализаторов снимков, которые Jest должен использовать для тестирования снимков
   // snapshotSerializers: [],
 
-  // Options that will be passed to the testEnvironment
+  // Параметры, которые будут переданы в testEnvironment
   // testEnvironmentOptions: {},
 
-  // Adds a location field to test results
+  // Добавляет поле местоположения в результаты тестов
   // testLocationInResults: false,
 
-  // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
+  // Массив регулярных выражений, которые сопоставляются со всеми путями тестовых файлов, совпадающие тесты будут пропущены
   // testPathIgnorePatterns: [
   //   "\\\\node_modules\\\\"
   // ],
 
-  // The regexp pattern or array of patterns that Jest uses to detect test files
+  // Регулярное выражение или массив шаблонов, которые Jest использует для обнаружения тестовых файлов
   // testRegex: [],
 
-  // This option allows the use of a custom results processor
+  // Эта опция позволяет использовать пользовательский процессор результатов
   // testResultsProcessor: undefined,
 
-  // This option allows use of a custom test runner
+  // Эта опция позволяет использовать пользовательский тестовый запускник
   // testRunner: "jest-circus/runner",
 
-  // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
+  // Эта опция задает URL для среды jsdom. Она отображается в свойствах, таких как location.href
   // testURL: "http://localhost",
 
-  // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
+  // Установка этого значения на "fake" позволяет использовать фейковые таймеры для функций, таких как "setTimeout"
   // timers: "real",
 
-  // A map from regular expressions to paths to transformers
+  // Карта из регулярных выражений в пути к трансформаторам
   // transform: undefined,
 
-  // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
+  // Массив регулярных выражений, сопоставляемых со всеми путями исходных файлов, совпадающие файлы будут пропущены при трансформации
   // transformIgnorePatterns: [
   //   "\\\\node_modules\\\\",
   //   "\\.pnp\\.[^\\\\]+$"
   // ],
 
-  // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
+  // Массив регулярных выражений, сопоставляемых со всеми модулями перед тем, как загрузчик модулей автоматически вернет для них подделку
   // unmockedModulePathPatterns: undefined,
 
-  // Indicates whether each individual test should be reported during the run
+  // Указывает, должен ли каждый отдельный тест сообщать о своем выполнении во время выполнения
   // verbose: undefined,
 
-  // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
+  // Массив регулярных выражений, которые сопоставляются со всеми путями исходных файлов перед повторным запуском тестов в режиме отслеживания
   // watchPathIgnorePatterns: [],
 
-  // Whether to use watchman for file crawling
+  // Использовать watchman для обхода файлов
   // watchman: true,
 };

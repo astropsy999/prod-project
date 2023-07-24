@@ -37,29 +37,44 @@
 #        run: npm run test:ui:ci
 #        if: always()
 
+# Название workflow - "linting, testing, building"
+# Заданные события, при которых будет запущена workflow - push и pull_request на ветке master
 name: linting, testing, building
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
+
+# Определение разрешений для доступа к репозиторию
 permissions:
   contents: write
   pages: write
   id-token: write
+
+# Определение concurrency group и отмена уже запущенных процессов при запуске нового
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: true
+
+# Определение двух jobs - "build-and-ui-testing" и "checks"
 jobs:
   build-and-ui-testing:
+    # Определение ОС для запуска - ubuntu-latest
     runs-on: ubuntu-latest
+    # Определение concurrency для job, используется переменная github.ref для уникального идентификатора
     concurrency: ci-${{ github.ref }}
+    # Определение environment для job - github-pages с указанием url, который используется для развертывания GitHub Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
+    # Определение matrix для разных версий Node.js, в данном случае - 17.x
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
+
+    # Шаги job "build-and-ui-testing"
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
@@ -103,7 +118,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
@@ -117,4 +132,3 @@ jobs:
         if: always()
       - name: linting css
         run: npm run lint:scss
-

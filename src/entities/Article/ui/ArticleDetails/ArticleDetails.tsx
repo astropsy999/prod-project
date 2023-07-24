@@ -1,3 +1,4 @@
+// Импорт необходимых зависимостей
 import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -28,19 +29,23 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
 import { renderArticleBlock } from './renderBlock';
 
+// Определение типа пропсов для компонента ArticleDetails
 interface ArticleDetailsProps {
   className?: string;
   id?: string;
 }
 
+// Компонент, отображающий информацию о статье с использованием устаревших компонентов
 const Deprecated = () => {
   const article = useSelector(getArticleDetailsData);
 
   return (
     <>
+      {/* Вывод аватара */}
       <HStack justify={'center'} max className={cls.avatarWrapper}>
         <Avatar size={200} src={article?.img} className={cls.avatar} />
       </HStack>
+      {/* Вывод основной информации о статье */}
       <VStack gap={'4'} max data-testid='ArticleDetails.Info'>
         <TextDeprecated
           className={cls.title}
@@ -58,10 +63,13 @@ const Deprecated = () => {
         </HStack>
       </VStack>
 
+      {/* Вывод блоков статьи */}
       {article?.blocks.map(renderArticleBlock)}
     </>
   );
 };
+
+// Компонент, отображающий информацию о статье с использованием обновленных компонентов
 const Redesigned = () => {
   const article = useSelector(getArticleDetailsData);
 
@@ -77,17 +85,20 @@ const Redesigned = () => {
         className={cls.img}
       />
 
+      {/* Вывод блоков статьи */}
       {article?.blocks.map(renderArticleBlock)}
     </>
   );
 };
 
+// Компонент-заглушка для отображения скелетонов в зависимости от признака 'isAppRedesigned'
 const Skeleton = toggleFeatures({
   name: 'isAppRedesigned',
   on: () => SkeletonRedesigned,
   off: () => SkeletonDeprecated,
 });
 
+// Основной компонент ArticleDetails
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const { className, id } = props;
   const { t } = useTranslation();
@@ -95,6 +106,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
 
+  // Получение данных статьи при монтировании компонента
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
       dispatch(fetchArticleById(id));
@@ -103,9 +115,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   let content;
 
+  // Вывод контента в зависимости от состояния загрузки или ошибки
   if (isLoading) {
     content = (
       <>
+        {/* Вывод скелетонов */}
         <Skeleton
           className={cls.avatar}
           width={200}
@@ -136,6 +150,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   } else if (error) {
     content = <div>{t('Error')}</div>;
   } else {
+    // Отображение данных статьи с учетом признака 'isAppRedesigned'
     content = (
       <ToggleFeatures
         feature={'isAppRedesigned'}
@@ -145,11 +160,13 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     );
   }
 
+  // Конфигурация reducers для DynamicModuleLoader
   const reducers: ReducersList = {
     articleDetails: articleDetailsReducer,
   };
 
   return (
+    // Обертка компонента с использованием DynamicModuleLoader для управления состоянием articleDetails
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <VStack
         max

@@ -1,3 +1,4 @@
+// Импорт необходимых зависимостей из библиотек и файлов
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -20,10 +21,27 @@ import { getRouteArticleDetails } from '@/shared/const/router';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { ArticleListItemProps } from '../ArticleListItem';
 
+/**
+ * В данном коде представлен компонент ArticleListItemDeprecated, который отображает статьи или карточки статей в разных видах (ArticleView).
+ * Этот компонент является устаревшим, так как использует старые компоненты для отображения интерфейса.
+ *
+ * Компонент принимает следующие пропсы:
+ *  className - класс компонента для настройки стилей;
+ *  article - объект статьи;
+ *  view - вид отображения списка статей;
+ *  target - атрибут target для ссылок (опционально).
+ *
+ * Компонент в зависимости от вида (view) отображает статью либо в виде списка, либо в виде карточки.
+ * Внутри компонента создаются необходимые элементы для представления информации о статье, такие как аватар, название, типы статьи, количество просмотров и другие.
+ * Данный устаревший компонент представлен как пример глобального процесса по замене компонентов в приложении на новые используюя различные условия
+ */
+
+// Компонент ArticleListItemDeprecated
 export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
   const { className, article, view, target } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation(); // Хук для использования мультиязычности (i18n)
 
+  // Формирование элементов с типами статьи и количеством просмотров
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
     <>
@@ -32,11 +50,14 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
     </>
   );
 
+  // Если view === ArticleView.LIST (Вид списка статей)
   if (view === ArticleView.LIST) {
+    // Находим первый блок текстового типа для отображения в описании статьи
     const textBlock = article.blocks.find(
       (block) => block.type === ArticleBlockType.TEXT,
     ) as ArticleTextBlock;
 
+    // Возвращаем JSX разметку для представления статьи в виде списка
     return (
       <div
         data-testid='ArticleListItem'
@@ -75,6 +96,7 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
     );
   }
 
+  // Возвращаем JSX разметку для представления статьи в виде карточки
   return (
     <AppLink
       data-testid='ArticleListItem'

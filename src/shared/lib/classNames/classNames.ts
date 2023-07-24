@@ -1,15 +1,23 @@
+// Определение типа Mods - объект, содержащий свойства с именами строкового типа и значениями типа boolean, string или undefined.
 export type Mods = Record<string, boolean | string | undefined>;
+
+// Функция classNames принимает три аргумента:
+// - cls (string) - основное имя класса, которое всегда добавляется к результату.
+// - mods (Mods) - объект с различными модификаторами (модами) для класса.
+// - additional (массив строк или undefined) - дополнительные имена классов, которые могут быть добавлены к результату.
 
 export function classNames(
   cls: string,
-  mods: Mods = {},
-  additional: Array<string | undefined> = [],
+  mods: Mods = {}, // По умолчанию, mods - пустой объект.
+  additional: Array<string | undefined> = [], // По умолчанию, additional - пустой массив.
 ): string {
+  // Функция объединяет имена классов в одну строку и возвращает результат.
+
   return [
-    cls,
-    ...additional.filter(Boolean),
-    ...Object.entries(mods)
-      .filter(([classNames, value]) => Boolean(value))
-      .map(([className]) => className),
-  ].join(' ');
+    cls, // Основное имя класса всегда добавляется в массив.
+    ...additional.filter(Boolean), // Добавляются дополнительные имена классов, которые не равны undefined.
+    ...Object.entries(mods) // Проходит по всем свойствам объекта mods.
+      .filter(([_, value]) => Boolean(value)) // Фильтрует свойства по значению true или непустой строке.
+      .map(([className]) => className), // Оставляет только имена классов модификаторов с положительными значениями.
+  ].join(' '); // Объединяет все имена классов в одну строку с пробелами между ними.
 }

@@ -1,39 +1,44 @@
+// Импортируем необходимые модули и типы
 import { JsxAttribute, Node, Project, SyntaxKind } from 'ts-morph';
 
-// Get removed feature name and feature state from command line arguments
-const removedFeatureName = process.argv[2]; // example isArticleEnabled
-const featureState = process.argv[3]; // example off/on
+// Получаем имя удаленной функциональности и состояние функциональности из аргументов командной строки
+const removedFeatureName = process.argv[2]; // пример isArticleEnabled
+const featureState = process.argv[3]; // пример off/on
 
-// Define toggle function and toggle component names
+// Определяем имена функции переключения и компонента переключения
 const toggleFunctionName = 'toggleFeatures';
 const toggleComponentName = 'ToggleFeatures';
 
-// Check if removed feature name is provided
+// Проверяем, предоставлено ли имя удаленной функциональности
 if (!removedFeatureName) {
-  throw new Error('Please specify the name of the feature flag');
+  throw new Error('Пожалуйста, укажите имя флага функциональности');
 }
 
-// Check if feature state is provided
+// Проверяем, предоставлено ли состояние функциональности
 if (!featureState) {
-  throw new Error('Please specify the feature state (on or off)');
+  throw new Error(
+    'Пожалуйста, укажите состояние функциональности (on или off)',
+  );
 }
 
-// Check if feature state is valid (either 'on' or 'off')
+// Проверяем, является ли состояние функциональности допустимым (должно быть либо 'on', либо 'off')
 if (featureState !== 'on' && featureState !== 'off') {
-  throw new Error('Invalid feature state (should be either on or off)');
+  throw new Error(
+    'Недопустимое состояние функциональности (должно быть либо on, либо off)',
+  );
 }
 
-// Create a new TypeScript project
+// Создаем новый проект TypeScript
 const project = new Project({});
 
-// Add source files to the project
+// Добавляем исходные файлы в проект
 project.addSourceFilesAtPaths('src/**/*.ts');
 project.addSourceFilesAtPaths('src/**/*.tsx');
 
-// Get all source files in the project
+// Получаем все исходные файлы в проекте
 const files = project.getSourceFiles();
 
-// Function to check if a node represents the toggle function
+// Функция для проверки, представляет ли узел функцию переключения
 function isToggleFunction(node: Node) {
   let isToggleFeatures = false;
 
@@ -49,14 +54,14 @@ function isToggleFunction(node: Node) {
   return isToggleFeatures;
 }
 
-// Function to check if a node represents the toggle component
+// Функция для проверки, представляет ли узел компонент переключения
 function isToggleComponent(node: Node) {
   const identifier = node.getFirstDescendantByKind(SyntaxKind.Identifier);
 
   return identifier?.getText() === toggleComponentName;
 }
 
-// Function to replace the toggle function
+// Функция для замены функции переключения
 const replaceToggleFunction = (node: Node) => {
   const objectOptions = node.getFirstDescendantByKind(
     SyntaxKind.ObjectLiteralExpression,
@@ -90,11 +95,11 @@ const replaceToggleFunction = (node: Node) => {
   }
 };
 
-// Function to get the JSX attribute node by name
+// Функция для получения атрибута JSX по имени
 const getAttributeNodeByName = (jsxAttributes: JsxAttribute[], name: string) =>
   jsxAttributes.find((node) => node.getName() === name);
 
-// Function to get the replaced component value from JSX attribute
+// Функция для получения замененного значения компонента из атрибута JSX
 const getReplacedComponent = (attribute?: JsxAttribute) => {
   const value = attribute
     ?.getFirstDescendantByKind(SyntaxKind.JsxExpression)
@@ -108,7 +113,7 @@ const getReplacedComponent = (attribute?: JsxAttribute) => {
   return value;
 };
 
-// Function to replace the toggle component
+// Функция для замены компонента переключения
 const replaceComponent = (node: Node) => {
   const attributes = node.getDescendantsOfKind(SyntaxKind.JsxAttribute);
 
@@ -134,7 +139,7 @@ const replaceComponent = (node: Node) => {
   }
 };
 
-// Process each source file in the project
+// Обрабатываем каждый исходный файл в проекте
 files.forEach((sourceFile) => {
   // eslint-disable-next-line consistent-return
   sourceFile.forEachDescendant((node) => {
@@ -151,5 +156,5 @@ files.forEach((sourceFile) => {
   });
 });
 
-// Save the modified project
+// Сохраняем измененный проект
 project.save();

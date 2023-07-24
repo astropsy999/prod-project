@@ -1,5 +1,7 @@
+// Определяем константу 'interfaceConst' со значением 'interface'
 const interfaceConst = 'interface';
 
+// Экспортируем функцию, которая генерирует код компонента на основе переданного имени компонента
 module.exports = (
   componentName,
 ) => `import { classNames } from 'shared/lib/classNames/classNames';
@@ -14,10 +16,10 @@ ${interfaceConst} ${componentName}Props {
 export const ${componentName} = memo((props: ${componentName}Props) => {
     const { className } = props;
     const { t } = useTranslation();
-    
+
     return (
         <div className={classNames(cls.${componentName}, {}, [className])}>
-           
+           // Здесь можно разместить содержимое компонента
         </div>
     );
 });`;

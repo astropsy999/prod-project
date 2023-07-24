@@ -1,3 +1,4 @@
+// Подключаем модули 'fs/promises', 'resolveRoot', 'firstCharUpperCase' и шаблоны для компонента, истории и стилей
 const fs = require('fs/promises');
 const resolveRoot = require('../resolveRoot');
 const firstCharUpperCase = require('../firstCharUpperCase');
@@ -5,38 +6,49 @@ const componentTemplate = require('./componentTemplate');
 const storyTemplate = require('./storyTemplate');
 const styleTemplate = require('./styleTemplate');
 
+// Экспортируем асинхронную функцию, которая создает структуру для UI компонента заданного слайса
 module.exports = async (layer, sliceName) => {
-    const resolveUIPath = (...segments) => resolveRoot('src', layer, sliceName, 'ui', ...segments);
+  // Функция для получения пути к UI директории
+  const resolveUIPath = (...segments) =>
+    resolveRoot('src', layer, sliceName, 'ui', ...segments);
 
-    const createUIDir = async () => {
-        try {
-            await fs.mkdir(resolveUIPath());
-        } catch (e) {
-            console.log('Не удалось создать UI директорию');
-        }
-    };
+  // Функция для создания UI директории
+  const createUIDir = async () => {
+    try {
+      await fs.mkdir(resolveUIPath());
+    } catch (e) {
+      console.log('Не удалось создать UI директорию');
+    }
+  };
 
-    const createComponent = async () => {
-        try {
-            const componentName = firstCharUpperCase(sliceName);
-            await fs.mkdir(resolveUIPath(componentName));
-            await fs.writeFile(
-                resolveUIPath(componentName, `${componentName}.tsx`),
-                componentTemplate(componentName),
-            );
-            await fs.writeFile(
-                resolveUIPath(componentName, `${componentName}.stories.tsx`),
-                storyTemplate(layer, componentName),
-            );
-            await fs.writeFile(
-                resolveUIPath(componentName, `${componentName}.module.scss`),
-                styleTemplate(componentName),
-            );
-        } catch (e) {
-            console.log('Не удалось создать компонент');
-        }
-    };
+  // Функция для создания компонента
+  const createComponent = async () => {
+    try {
+      // Генерируем имя компонента, первая буква которого должна быть в верхнем регистре
+      const componentName = firstCharUpperCase(sliceName);
 
-    await createUIDir();
-    await createComponent();
+      // Создаем директорию для компонента
+      await fs.mkdir(resolveUIPath(componentName));
+
+      // Создаем файлы для компонента, используя соответствующие шаблоны
+      await fs.writeFile(
+        resolveUIPath(componentName, `${componentName}.tsx`),
+        componentTemplate(componentName),
+      );
+      await fs.writeFile(
+        resolveUIPath(componentName, `${componentName}.stories.tsx`),
+        storyTemplate(layer, componentName),
+      );
+      await fs.writeFile(
+        resolveUIPath(componentName, `${componentName}.module.scss`),
+        styleTemplate(componentName),
+      );
+    } catch (e) {
+      console.log('Не удалось создать компонент');
+    }
+  };
+
+  // Вызываем функции для создания структуры и компонента
+  await createUIDir();
+  await createComponent();
 };

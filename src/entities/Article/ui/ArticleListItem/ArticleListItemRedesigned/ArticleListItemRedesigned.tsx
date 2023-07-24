@@ -1,3 +1,4 @@
+// Импорт необходимых зависимостей из библиотек и файлов
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -20,16 +21,36 @@ import {
   ArticleView,
 } from '../../../model/consts/articleConsts';
 
+/**
+ *В данном коде представлен компонент ArticleListItemRedesigned, который отображает статьи или карточки статей в разных видах (ArticleView).
+ *Этот компонент является модернизированным и использует новые компоненты для отображения интерфейса.
+ *
+ * Компонент принимает следующие пропсы:
+ * className - класс компонента для настройки стилей;
+ * article - объект статьи;
+ * view - вид отображения списка статей;
+ * target - атрибут target для ссылок (опционально).
+ *
+ * Компонент в зависимости от вида (view) отображает статью либо в виде списка, либо в виде карточки.
+ * Внутри компонента создаются необходимые элементы для представления информации о статье, такие как аватар, название, подзаголовок, количество просмотров и другие.
+ * Данный компонент использует новые компоненты из библиотеки @/shared/ui/redesigned, что позволяет сделать интерфейс более современным и
+ * легко изменяемым при необходимости.
+ */
+
+// Компонент ArticleListItemRedesigned
 export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
   const { className, article, view, target } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation(); // Хук для использования мультиязычности (i18n)
 
+  // Формирование JSX для информации о пользователе (аватар и имя)
   const userInfo = (
     <>
       <Avatar size={32} src={article.user.avatar} className={cls.avatar} />
       <Text bold text={article.user.username} />
     </>
   );
+
+  // Формирование JSX для отображения количества просмотров
   const views = (
     <HStack gap='8'>
       <Icon Svg={EyeIcon} />
@@ -37,11 +58,14 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
     </HStack>
   );
 
+  // Если view === ArticleView.LIST (Вид списка статей)
   if (view === ArticleView.LIST) {
+    // Находим первый блок текстового типа для отображения в описании статьи
     const textBlock = article.blocks.find(
       (block) => block.type === ArticleBlockType.TEXT,
     ) as ArticleTextBlock;
 
+    // Возвращаем JSX разметку для представления статьи в виде списка
     return (
       <Card
         padding='24'
@@ -79,6 +103,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
     );
   }
 
+  // Возвращаем JSX разметку для представления статьи в виде карточки
   return (
     <AppLink
       data-testid='ArticleListItem'
