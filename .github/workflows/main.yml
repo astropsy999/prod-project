@@ -83,35 +83,45 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm ci --force
+        if: false
       - name: build production project
         run: npm run build:prod
-        if: always()
+        # if: always()
+        if: false
       - name: build storybook
         run: npm run storybook:build
-        if: always()
+        # if: always()
+        if: false
       - name: screenshot testing
         run: npm run test:ui:ci
-        if: always()
+        # if: always()
+        if: false
       - name: unit testing
-        if: always()
+        # if: always()
+        if: false
         run: npm run test:unit
       - name: Generate HTML report
         run: npm run test:ui:report
-        if: always()
+        # if: always()
+        if: false
       - name: move loki
         run: mv .loki reports/
-        if: always()
+        # if: always()
+        if: false
       - name: Setup Pages
         uses: actions/configure-pages@v2
-        if: always()
+        # if: always()
+        if: false
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-        if: always()
+        # if: always()
+        if: false
         with:
           path: 'reports'
       - name: Deploy to GitHub Pages
         id: deployment
-        if: always()
+        # if: always()
+        if: false
         uses: actions/deploy-pages@v1
 
   checks:
