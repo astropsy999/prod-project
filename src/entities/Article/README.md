@@ -24,7 +24,9 @@ export {
 - Components
 
 [ArticleDetails](/src/entities/Article/ui/ArticleDetails/) - компонент с информацией о статье
+
 [ArticleList](/src/entities/Article/ui/ArticleList/) - Компонент со списком статей
+
 [ArticleCodeBlockComponent](/src/entities/Article/ui/ArticleCodeBlockComponent/) - предназначен для удобного отображения блоков кода в статьях
 
 `ArticleSortSelector` - Компонент с выбором сортировки списка статей
