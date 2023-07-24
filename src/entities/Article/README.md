@@ -4,7 +4,7 @@
 
 #### Public api
 
-```[Public api](index.ts)
+```typescript jsx
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 
 export type { Article } from './model/types/article';
@@ -24,10 +24,8 @@ export {
 - Components
 
 [ArticleDetails](/src/entities/Article/ui/ArticleDetails/) - компонент с информацией о статье
-
-`ArticleList` - Компонент со списком статей
-
-`ArticleViewSwitcher` - Компонент переключатель отображения списка статьей (плитка, список)
+[ArticleList](/src/entities/Article/ui/ArticleList/) - Компонент со списком статей
+[ArticleCodeBlockComponent](/src/entities/Article/ui/ArticleCodeBlockComponent/) - предназначен для удобного отображения блоков кода в статьях
 
 `ArticleSortSelector` - Компонент с выбором сортировки списка статей
 
