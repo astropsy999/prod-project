@@ -22,9 +22,9 @@ export const AppLogo = memo(({ className, size = 50 }: AppLogoProps) => (
       color='black' // Цвет иконки
       className={cls.appLogo} // Класс для стилизации иконки
     />
-    <div className={cls.gradientBig} /> // Элемент с классом для стилизации
-    градиента
-    <div className={cls.gradientSmall} /> // Элемент с классом для стилизации
-    маленького градиента
+    {/* Элемент с классом для стилизации градиента */}
+    <div className={cls.gradientBig} />
+    {/* Элемент с классом для стилизации маленького градиента */}
+    <div className={cls.gradientSmall} />
   </HStack>
 ));

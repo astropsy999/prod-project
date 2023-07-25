@@ -38,7 +38,8 @@ export const AppLink = memo((props: AppLinkProps) => {
       }
       {...otherProps} // Прочие пропсы передаем без изменений
     >
-      {children} // Выводим контент ссылки
+      {/* Выводим контент ссылки */}
+      {children}
     </NavLink>
   );
 });
