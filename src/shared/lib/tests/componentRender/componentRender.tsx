@@ -23,6 +23,11 @@ interface TestProviderProps {
   options?: componentRenderOptions;
 }
 
+/**
+ * Компонент TestProvider, обеспечивающий провайдеры и настройки для тестирования компонентов
+ * @param props - Свойства компонента TestProvider
+ * @returns Обернутые провайдерами компоненты, готовые для тестирования
+ */
 export function TestProvider(props: TestProviderProps) {
   const { children, options = {} } = props;
   const {
@@ -31,6 +36,7 @@ export function TestProvider(props: TestProviderProps) {
     asyncReducers,
     theme = Theme.LIGHT,
   } = options;
+
   return (
     <MemoryRouter initialEntries={[route]}>
       <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>
@@ -47,6 +53,12 @@ export function TestProvider(props: TestProviderProps) {
   );
 }
 
+/**
+ * Функция componentRender для удобного рендеринга компонентов с необходимыми провайдерами
+ * @param component - Реакт-компонент, который нужно протестировать
+ * @param options - Настройки для TestProvider
+ * @returns Объект, созданный функцией render из библиотеки @testing-library/react
+ */
 export function componentRender(
   component: ReactNode,
   options: componentRenderOptions = {},

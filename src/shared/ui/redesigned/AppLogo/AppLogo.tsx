@@ -5,23 +5,26 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack } from '../Stack';
 
 interface AppLogoProps {
-  className?: string;
-  size?: number;
+  className?: string; // Дополнительный класс для компонента
+  size?: number; // Размер логотипа
 }
 
+// Компонент AppLogo
 export const AppLogo = memo(({ className, size = 50 }: AppLogoProps) => (
   <HStack
     max
     justify='center'
-    className={classNames(cls.appLogoWrapper, {}, [className])}
+    className={classNames(cls.appLogoWrapper, {}, [className])} // Формируем классы для стилизации с помощью функции classNames
   >
     <AppSvg
       width={size}
       height={size}
-      color='black'
-      className={cls.appLogo}
+      color='black' // Цвет иконки
+      className={cls.appLogo} // Класс для стилизации иконки
     />
-    <div className={cls.gradientBig} />
-    <div className={cls.gradientSmall} />
+    <div className={cls.gradientBig} /> // Элемент с классом для стилизации
+    градиента
+    <div className={cls.gradientSmall} /> // Элемент с классом для стилизации
+    маленького градиента
   </HStack>
 ));

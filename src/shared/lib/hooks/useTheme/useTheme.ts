@@ -2,20 +2,20 @@ import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 import { Theme } from '../../../const/theme';
 
-// Define the return type for the useTheme hook
+// Определение возвращаемого типа для хука useTheme
 interface UseThemeResult {
-  toggleTheme: (saveAction?: (theme: Theme) => void) => void;
-  theme: Theme;
+  toggleTheme: (saveAction?: (theme: Theme) => void) => void; // Функция для переключения темы и опционального сохранения новой темы
+  theme: Theme; // Текущая тема приложения
 }
 
 export function useTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  // Define the toggleTheme function
+  // Определение функции toggleTheme
   const toggleTheme = (saveAction?: (theme: Theme) => void) => {
     let newTheme: Theme;
 
-    // Switch between themes based on the current theme value
+    // Переключение между темами на основе текущего значения темы
     switch (theme) {
       case Theme.DARK:
         newTheme = Theme.LIGHT;
@@ -30,16 +30,16 @@ export function useTheme(): UseThemeResult {
         newTheme = Theme.GDC;
     }
 
-    // Set the new theme using the setTheme function from the context
+    // Установка новой темы с использованием функции setTheme из контекста
     setTheme?.(newTheme);
 
-    // Call the optional saveAction function with the new theme
+    // Вызов опциональной функции saveAction с новой темой
     saveAction?.(newTheme);
   };
 
-  // Return the theme and toggleTheme function as the result
+  // Возврат темы и функции toggleTheme в качестве результата хука
   return {
-    theme: theme || Theme.LIGHT, // Use a default theme if the theme is undefined
+    theme: theme || Theme.LIGHT, // Использование темы по умолчанию, если тема не определена
     toggleTheme,
   };
 }

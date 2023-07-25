@@ -240,6 +240,14 @@ Clear.args = {
   - [components](/src/shared/lib/components/): Функции для оптимизации работы компонентов
   - [context](/src/shared/lib/context/)
   - [features](/src/shared/lib/features/): функционал касающийся фича-флагов
+  - [hooks](/src/shared/lib/hooks/): различные хуки
+  - [render](/src/shared/lib/render/): функции связанные с рендером
+  - [router](/src/shared/lib/router/): функции связанные с роутингом
+  - [store](/src/shared/lib/store/): работа со стором
+  - [tests](/src/shared/lib/tests/): вспомогательные функции для тестов
+  - [url](/src/shared/lib/url/): работа с url-ами
+- [types](/src/shared/types/): определение типов
+- [ui](/src/shared/ui/): UI компоненты которые используются во всем приложении
 
 ## Сущности (entities)
 
