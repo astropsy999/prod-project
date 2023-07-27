@@ -1,6 +1,6 @@
 ## Сущность статьи
 
-Сущность статьи используется
+Сущность статьи используется для непосредственного отображения статьи и включает логику взаимодействия с ней.
 
 #### Public api
 
@@ -21,25 +21,21 @@ export {
 } from './model/consts/consts';
 ```
 
-- Components
+- UI (компоненты)
 
 [ArticleDetails](/src/entities/Article/ui/ArticleDetails/) - компонент с информацией о статье
 
 [ArticleList](/src/entities/Article/ui/ArticleList/) - Компонент со списком статей
 
+[ArticleListItem](/src/entities/Article/ui/ArticleListItem/) - Компонент со статьей
+
 [ArticleCodeBlockComponent](/src/entities/Article/ui/ArticleCodeBlockComponent/) - предназначен для удобного отображения блоков кода в статьях
 
-`ArticleSortSelector` - Компонент с выбором сортировки списка статей
+[ArticleImageBlockComponent](/src/entities/Article/ui/ArticleImageBlockComponent/) - предназначен для удобного отображения изображений в статьях
 
-`ArticleTypeTabs` - Компонент с выбором типа статьи
+- MODEL (модель)
 
-- types
-
-`Article` - Тип, описывающий статью
-
-- selectors
-
-`getArticleDetailsData` - Селектор для получения информации о текущей открытой статье
+  -
 
 ```
 
