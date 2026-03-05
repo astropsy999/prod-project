@@ -40,6 +40,9 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
+    "overrides": {
+        "svgo": "^3.0.2"
+    },
     "devDependencies": {
         "@babel/core": "^7.17.5",
         "@babel/plugin-transform-runtime": "^7.18.10",
